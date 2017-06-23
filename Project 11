@@ -1,0 +1,175 @@
+                              Project11
+
+
+1- Basics concepts
+
+a- What is a DevOps?
+b- What is GIT?
+c- what is the difference between git ans svn?
+d- what continious integration?
+e- what is continious delevery?
+f- what is scrum?
+g- What is agile methodology?
+h- what release calender ?
+i- what is release date?
+
+2- give 4 raisons why companies should consider the DevOps method
+
+3- what are some automation tools used in the DevOps environment?
+4- why is it important to build the software in the test regions before delevering it to production?
+5- create a project in your github repository called project4 and in project 4 , create a file called project11
+6- copy your homework11 answers into the file project11 and commit it.
+7- What is the url to access your github project11 file?
+
+
+
+
+
+ANSWERS TO PROJECT WORK NO. 11
+
+1.	Basics concepts
+
+a)	What is a DevOps?
+Answer: DevOps is the combination of cultural philosophies, practices, and tools that increases an organization’s ability to deliver applications and services at high velocity: evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes. This speed enables organizations to better serve their customers and compete more effectively in the market.
+Under a DevOps model, development and operations teams are no longer “siloed.” Sometimes, these two teams are merged into a single team where the engineers work across the entire application lifecycle, from development and test to deployment to operations, and develop a range of skills not limited to a single function. Quality assurance and security teams may also become more tightly integrated with development and operations and throughout the application lifecycle.
+These teams use practices to automate processes that historically have been manual and slow. They use a technology stack and tooling which help them operate and evolve applications quickly and reliably. These tools also help engineers independently accomplish tasks (for example, deploying code or provisioning infrastructure) that normally would have required help from other teams, and this further increases a team’s velocity.
+
+b)	What is GIT?
+Answer: Git is a version control system (VCS) for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files. As a distributed revision control system it is aimed at speed, data integrity, and support for distributed, non-linear workflows.
+Git was created by Linus Torvalds in 2005 for development of the Linux kernel, with other kernel developers contributing to its initial development. Its current maintainer since 2005 is Junio Hamano.
+As with most other distributed version control systems, and unlike most client–server systems, every Git directory on every computer is a full-fledged repository with complete history and full version tracking abilities, independent of network access or a central server.
+Like the Linux kernel, Git is free software distributed under the terms of the GNU General Public License version 2.
+
+c)	What is the difference between git and svn?
+Answer: 
+Git and SVN are both software. Git is SCM, source code management, and a distributed revision control system. SVN is a revision control and software versioning system.
+Git is an SCM with its main emphasis being on speed. It was developed for Linux kernel by Linus Torvalds. It has a repository with revision tracking capacities and complete history. This repository is not dependent on a central server or network access. It is free software. Git is distributed under GNU, and its maintenance is overseen by Junio Hamano. Apache Subversion, or SVN, is distributed under the open source license. It is a non-distributed VCS, Version Control System. It does not have a repository which is either centralized or a centralized server. It is mainly used for maintaining historical and current versions of source code, documentation, and Web pages. The main aim of SVN is to be used as a successor to CVS, Concurrent Version System. It was developed by CollabNet, Inc.
+The content stored in Git is metadata. It stores the content in the folder called a .git folder, which has a larger size. The .git folder in the machine is the cloned repository. The folder consists of all the tags, version histories, branches, etc., like in the central repository; SVN stores files. They do not have a cloned repository
+The Git branches are easier to work with. The system helps in merging the files quickly and also helps in finding the unmerged ones; the SVN branches are actually a folder present in the repository. For merging the branches, special commands are required.
+SVN has a global revision number, the revision number is a source code’s snap shot; Git does not have this.
+Git has contents which are cryptographically hashed. This is done by the usage of an algorithm referred to as SHA1 hash algorithm. This feature helps in protecting the contents from repository corruption taking place due to network issues or disk failures.
+Summary:
+
+•	Git is a distributed VCS; SVN is a non-distributed VCS.
+•	Git has a centralized server and repository; SVN does not have a centralized server or repository.
+•	The content in Git is stored as metadata; SVN stores files of content.
+•	Git branches are easier to work with than SVN branches.
+•	Git does not have the global revision number feature like SVN has.
+•	Git has better content protection than SVN.
+•	Git was developed for Linux kernel by Linus Torvalds; SVN was developed by CollabNet, Inc.
+•	Git is distributed under GNU, and its maintenance overseen by Junio Hamano; Apache Subversion, or SVN, is distributed under the open source license.
+
+d)	What is continuous integration?
+Answer: Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early. 
+By integrating regularly, you can detect errors quickly, and locate them more easily.
+Because you’re integrating so frequently, there is significantly less back-tracking to discover where things went wrong, so you can spend more time building features.
+Continuous Integration is cheap. Not integrating continuously is expensive. If you don’t follow a continuous approach, you’ll have longer periods between integrations. This makes it exponentially more difficult to find and fix problems. Such integration problems can easily knock a project off-schedule, or cause it to fail altogether.
+Continuous Integration brings multiple benefits to any organization:
+
+•	Say goodbye to long and tense integrations
+•	Increase visibility enabling greater communication
+•	Catch issues early and nip them in the bud
+•	Spend less time debugging and more time adding features
+•	Build a solid foundation
+•	Stop waiting to find out if your code’s going to work
+•	Reduce integration problems allowing you to deliver software more rapidly
+
+e)	What is continuous delivery?
+Answer: Continuous delivery (CD) is a software engineering approach in which teams produce software in short cycles, ensuring that the software can be reliably released at any time. It aims at building, testing, and releasing software faster and more frequently. The approach helps reduce the cost, time, and risk of delivering changes by allowing for more incremental updates to applications in production. A straightforward and repeatable deployment process is important for continuous delivery.
+Continuous delivery and DevOps are similar in their meanings and are often conflated, but they are two different concepts. DevOps has a broader scope, and centers around the cultural change, specifically the collaboration of the various teams involved in software delivery (developers, operations, quality assurance, management, etc.), as well as automating the processes in software delivery. Continuous delivery, on the other hand, is an approach to automate the delivery aspect, and focuses on bringing together different processes and executing them more quickly and more frequently. Thus, DevOps can be a product of continuous delivery, and CD flows directly into DevOps.
+
+f)	What is scrum?
+Answer: Scrum is an iterative and incremental agile software development framework for managing product development. It defines "a flexible, holistic product development strategy where a development team works as a unit to reach a common goal", challenges assumptions of the "traditional, sequential approach" to product development, and enables teams to self-organize by encouraging physical co-location or close online collaboration of all team members, as well as daily face-to-face communication among all team members and disciplines involved.
+A key principle of Scrum is the dual recognition that customers will change their minds about what they want or need (often called requirements volatility and that there will be unpredictable challenges for which a predictive or planned approach is not suited. As such, Scrum adopts an evidence-based empirical approach accepting that the problem cannot be fully understood or defined up front, and instead focusing on how to maximize the team's ability to deliver quickly, to respond to emerging requirements, and to adapt to evolving technologies and changes in market conditions.
+
+g)	What is agile methodology?
+Answer: Agile development methodology provides opportunities to assess the direction of a project throughout the development lifecycle. This is achieved through regular cadences of work, known as sprints or iterations, at the end of which teams must present a potentially shippable product increment. By focusing on the repetition of abbreviated work cycles as well as the functional product they yield, agile methodology is described as “iterative” and “incremental.” In an agile paradigm, every aspect of development requirements, design, etc. is continually revisited throughout the lifecycle. When a team stops and re-evaluates the direction of a project every two weeks, there’s always time to steer it in another direction.
+
+The results of this “inspect-and-adapt” approach to development greatly reduce both development costs and time to market. Because teams can develop software at the same time they’re gathering requirements, the phenomenon known as “analysis paralysis” is less likely to impede a team from making progress. And because a team’s work cycle is limited to two weeks, it gives stakeholders recurring opportunities to calibrate releases for success in the real world. Agile development methodology helps companies build the right product. Instead of committing to market a piece of software that hasn’t even been written yet, agile empowers teams to continuously replan their release to optimize its value throughout development, allowing them to be as competitive as possible in the marketplace. Development using an agile methodology preserves a product’s critical market relevance and ensures a team’s work doesn’t wind up on a shelf, never released. 
+ An agile environment is defined as an environment that creates and supports a culture that encourages a team of people to work toward a common goal. This is done by incorporating the importance and value of individuals and their interactions especially in terms of working to achieve quality, collaboration, and acceptance of frequent change in the company culture.
+
+h)	What release calendar?
+Answer:
+
+i)	What is release date?
+Answer: The date that changes made in the lowest regions goes to productions.
+
+2.	Give 4 reasons why companies should consider the DevOps method.
+Answer: Companies that incorporate DevOps practices get more done, plain and simple. With a single team composed of cross-functional members all working in collaboration, DevOps organizations can deliver with maximum speed, functionality, and innovation.
+
+Increased effectiveness: 
+There is enormous waste in a typical IT environment with people waiting for other people and other machines—or they are stuck solving the same problems over and over. Workers like to be productive and the time spent churning cause’s frustration and unhappiness. When people get rid of the unsatisfying parts of their job and can instead spend that time adding value to the organization, everyone benefits.
+Automated deployments and standardized production environments, key aspects of DevOps models of IT operations, make deployments predictable and free people from routine repetitive tasks to go do more creative things.
+
+There are technical benefits:
+•	Continuous software delivery
+•	Less complexity to manage
+•	Faster resolution of problems
+
+There are cultural benefits:
+•	Happier, more productive teams
+•	Higher employee engagement
+•	Greater professional development opportunities
+
+And there are business benefits:
+•	Faster delivery of features
+•	More stable operating environments
+•	Improved communication and collaboration
+•	More time to innovate (rather than fix/maintain)
+
+3.	What are some automation tools used in the DevOps environment?
+Answer: 1. Terraform
+Terraform is an Infra provisioning tool which is cloud agnostic. It is created by Hashicorp and written in Go. Unlike other configuration management tools, terraform does a great job in maintaining the state of your infrastructure using a concept called state files. You can get started with terraforming in days as it is easy to understand. Terraform has its own DSL called HCL (Hashicorp configuration language). Also, you can write your own terraform plugin in go for your custom functionalities. If you a beginner, you can get started with terraform using this book
+
+2. Chef
+Chef is a ruby based configuration management tool. You might have come across the term ” infrastructure as code”, which means configuration management. Chef has the concept of cookbooks where you code your infrastructure in DSL (domain specific language) and with a little bit of programming. Chef provisions virtual machines and configures them according to the rules mentioned in the cookbooks. An agent would be running on all the servers which have to be configured. The agent will pull the cookbooks from the chef master server and runs those configurations on the server to reach its desired state.
+3. Puppet
+Puppet is also a ruby based configuration management tool like chef. The configuration code is written using puppet DSL’s and wrapped in modules. While chef cookbooks are more developer-centric while puppet is developed by keeping system administrators in mind. Puppet runs a puppet agent on all server to be configured and it pulls the compiled module from the puppet server and installs required software packages specified in the module.
+
+4. Saltstack
+Saltstack is a python based opens configuration management tool. Unlike chef and puppet, Saltstack supports remote execution of commands. Normally in chef and puppet, the code for configuration will be pulled from the server while, in Saltstack, the code can be pushed to many nodes simultaneously. The compilation of code and configuration is very fast in Saltstack.
+
+5. Ansible
+Ansible is an agent-less configuration management as well as orchestration tool. In Ansible, the configuration modules are called “Playbooks”. Playbooks are written in YAML format and it is relatively easy to write when compared to other configuration management tools. Like other tools, Ansible can be used for cloud provisioning.
+
+6. Juju
+Juju is a python based orchestration tool developed by canonical. It has a great UI for orchestrating your applications in your cloud environments. You can also use their command line interface to do all the orchestration tasks.You can configure, deploy and scale applications using Juju.
+
+7. Jenkins
+Jenkins is a java based continuous integration tool for faster delivery of applications. Jenkins has to be associated with a version control system like GitHub or SVN. Whenever new code is pushed to a code repository, Jenkins server will build and test the new code and notifies the team for with the results and changes.
+
+Jenkins is not just a CI tool anymore. Jenkins is been used as an orchestration tool by building pipelines for the application provisioning and deployment. Its new pipeline as code functionality lets you keep the CI/CD pipelines as a complete code.
+
+8. Vagrant
+Vagrant is a great tool for configuring virtual machines for a development environment. Vagrant runs on top of VM solutions like VirtualBox,VMware, hyper-V etc. It uses a configuration file called Vagrantfile, which contains all the configurations needed for the VM.  Once a virtual machine is created, it can be shared with other developers to have the same development environment. vagrant has plugins for cloud provisioning, Configuration management tools (chef, puppet etc,) and  Docker.
+
+9. Docker
+Docker works on the concept of process level virtualization. Docker creates isolated environments for applications called containers. These containers can be shipped to any other server without making changes to the application. Docker is considered to be the next step in virtualization. Docker has a huge developer community and it is gaining huge popularity among Devops practitioners and pioneers in cloud computing.
+
+10. New Relic
+New relic is a cloud-based (SaaS) solution for application monitoring. It supports monitoring of various applications like Php, Ruby, Java, NodeJS etc. It gives you the real-time insights about your running application. A new relic agent should be configured in your application to get the real time data. New relic uses various metrics to provide valuable insights about the application it is monitoring.
+
+11. Sensu
+Sensu is an open source monitoring framework written in Ruby. Sensu is a monitoring tool specifically built for cloud environments. It can be easily deployed using tools like chef and puppet. It also has an enterprise edition for monitoring.
+
+12. Datadog
+Datadog is also a cloud-based (Saas) application and server monitoring solutions. You can monitor docker containers and other applications using Datadog.
+
+Other tools worth considering,
+
+Reiman (Open Source Monitoring Tool)
+AppDynamics (For application monitoring)
+Logz.io (For log analysis and management)
+Slunk (Log analysis and alerting)
+
+4.	Why is it important to build the software in the test regions before delivering it to production?
+Answer: Most IT companies apply the DTAP approach to ensure customer satisfaction and improve on their quality assurance which ultimately will result on the bottom and customer retention which leads to market share. 
+The acronym DTAP is short for Development, Testing, Acceptance and Production. It is a rather common acronym in ICT expressing a phased approach of software testing and deployment. The four letters in DTAP denote the following common steps:
+
+•	The program or component is developed on a Development system. This development environment might have no testing capabilities.
+•	Once the developer thinks it is ready, the product is copied to a Test environment, to verify it works as expected. This test environment is supposedly standardized and in close alignment with the target environment.
+•	If the test is successful, the product is copied to an Acceptance test environment. During the Acceptance test, the customer will test the product in this environment to verify whether it meets their expectations.
+•	If the customer accepts the product, it is deployed to a Production environment, making it available to all users of the system.
+
+5.	create a project in your github repository called project4 and in project 4 , create a file called project11
+Answer: 
