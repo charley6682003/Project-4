@@ -1,0 +1,155 @@
+ANSWERS TO PROJECT WORK NO 13
+
+1.	What is a user account?
+Answer: A user account is a location on a network server used to store a computer username, password, and other information. A user account allows or does not allow a user to connect to a network, another computer, or other share. Any network that has multiple users requires user accounts. A good example of a user account is an Internet or your e-mail account.
+
+2.	What is a user's shell?
+Answer: A shell is a program that provides the traditional, text-only user interface for Linux and other Unix-like operating systems. Its primary function is to read commands that are typed into a console (i.e., an all-text display mode) or terminal window (an all-text window) in a GUI (graphical user interface) and then execute (i.e., run) them.
+The term shell derives its name from the fact that it is an outer layer of an operating system. A shell is an interface between the user and the internal parts of the operating system (at the very core of which is the kernel).
+A user is in a shell (i.e., interacting with the shell) as soon as that user has logged into the system. A shell is the most fundamental way that a user can interact with the system, and the shell hides the details of the underlying operating system from the user.
+A shell prompt, also referred to as a command prompt is a character or set of characters at the start of the command line that indicates that the shell is ready to receive commands. It usually is, or ends with, a dollar sign ($) for ordinary users and a pound sign (#) for the root (i.e., administrative) user. The term command line is sometimes used interchangeably with the shell prompt, because that is where the user enters commands. For example, instructions for performing some activity might say "Enter the following at the command line," which is the same as saying "Enter the following at the shell prompt." However, a command line is not a program but rather just the space to the right of a shell prompt.
+Shells, although small in size, are sophisticated and powerful programs that are used for the following: program execution (i.e., launching), substitution of variables and of file names, input/output (I/O), redirection (i.e., sending the output from a program to a destination other than its default destination, including to be used as the input for another program), user environment control (e.g., changing the shell or the shell prompt), and serving as a programming language (i.e., a language that can be used to write shell scripts). Shells in Unix-like operating systems are unusual in that they are both an interactive command language (i.e., a language that a user can employ interactively to issue commands) and a programming language.
+On systems with GUIs, many users rarely interact with the shell directly. However, GUIs are merely front ends for shells; that is, they are merely attractive interface layers that are built on top of a shell and which use the shell's commands. As shells are usually more powerful and feature-rich than GUIs, most intermediate and advanced users of Unix-like operating systems find them to be preferable to GUIs for many tasks.
+A number of different shells have been developed for Unix-like operating systems. They share many similarities, but there are also some differences with regard to commands, syntax and functions that are important mainly for advanced users. Every Unix-like operating system has at least one built-in shell, and most have several.
+sh (the Bourne Shell) is the original UNIX shell, and it is still in widespread use today. Written by Stephen Bourne at Bell Labs in 1974, it is a simple shell with a small size and few features, perhaps the fewest of any shell for a Unix-like operating system. Bell Labs was the research and development arm of AT&T (The American Telephone and Telegraph Company), the former U.S. telecommunications monopoly. The first version of UNIX was developed at Bell Labs in 1969.
+Among the functions that most users have come to expect in a shell but which are missing in sh are file name completion, command editing, command history and ease of executing multiple background processes (also referred to as jobs). A process is an instance of an executing program; a background process operates generally unnoticed while users are working with foreground processes. File name completion is the completion by the system of the names of files that have only partially typed in by a user. Command history allows users to conveniently find and reissue previously issued commands. Every Unix-like system contains sh or another shell which incorporates its commands.
+Bash (Bourne-again shell) is the default shell on Linux. It also runs on nearly every other Unix-like operating system as well, and versions are also available for other operating systems including the Microsoft Windows systems. Bash is a superset of sh (i.e., commands that work in sh also work in bash, but the reverse is not always true), and it has many more commands than sh, making it a powerful tool for advanced users. But it is also intuitive and flexible, and thus it is probably the most suitable shell for beginners. bash was written for the GNU project (whose goal is to develop a complete, Unix-compatible, high performance and entirely free operating system), primarily by Brian Fox and Chet Ramey. Its name is a pun on the name of Steve Bourne.
+ash (the Almquist shell) is a clone of sh that was written by Kenneth Almquist in 1989. It is the shell that is the most compliant with sh, and it does not have any additional functions that other interactive shells such as bash and tcsh offer. ash also features small memory requirements compared to the other sh-compliant shells and is thus well suited for systems with small memories, especially small embedded systems (i.e., systems built into other products). It is available on most commercial Unix-like systems.
+csh (the C shell) has a syntax that resembles that of the highly popular C programming language (also developed at Bell Labs), and thus it is sometimes preferred by programmers. It was created in 1978 by Bill Joy (who also wrote the vi text editor and later co-founded Sun Microsystems) at the University of California at Berkeley (UCB).
+ksh (the Korn shell) is a superset of sh developed by David Korn at Bell Labs in 1983. It contains many features of the C shell as well, including a command history, which was inspired by the requests of Bell Labs users. It also features built-in arithmetic evaluation and advanced scripting capabilities similar to those found in powerful programming languages such as awk, sed and perl.
+tcsh (the TENEX C shell) is based on csh but also has programmable file name completion, command line editing, a command history mechanism and other features lacking in csh. It is named after the TENEX operating system, which inspired the author of tcsh. tcsh replaced the csh as the default shell on some BSD operating systems (i.e., FreeBSD and Darwin).
+zsh (the Z shell) is similar to ksh, but it also includes many features from csh. That is, it attempts to combine the programmability and syntax of the Korn shell with useful features from the C shell (which has some disadvantages as a programming language). It was written by Paul Falstad around 1990.
+The great flexibility of shells on Unix-like operating systems is further enhanced by the fact that it is extremely easy to change the current shell. The shell for any user can be switched temporarily, or that user's default shell can be changed.
+Some other families of operating systems also have shells. For example, MS-DOS became the shell on earlier versions of Microsoft Windows. However, it was replaced with a shell emulator on later versions (e.g., Windows 2000 and Windows XP), apparently because of the Microsoft philosophy of attempting to make the GUI all-powerful and de-emphasizing the command line.
+
+3.	What is a user's home directory?
+Answer: 	
+A home directory, also called a login directory, is the directory on Unix-like operating systems that serves as the repository for a user's personal files, directories and programs. It is also the directory that a user is first in after logging into the system.
+
+A home directory is created automatically for every ordinary user in the directory called /home. A standard subdirectory of the root directory, /home has the sole purpose of containing users' home directories. The root directory, which is designated by a forward slash ( / ), is the directory that contains all other directories and their subdirectories as well as all files on the system.
+
+The name of a user's home directory is by default identical to that of the user. Thus, for example, a user with a user name of Charles would typically have a home directory named Charles. It would have an absolute pathname of /home/Charles. An absolute pathname is the location of a directory or file relative to the root directory, and it always starts with the root directory (i.e., with a forward slash).
+
+The only user that will by default have its home directory in a different location is the root (i.e., administrative) user, whose home directory is /root. /root is another standard subdirectory of the root directory, and it should not be confused with the root directory (although it sometimes is by new users). For security purposes, even system administrators should have ordinary accounts with home directories in /home into which they routinely log in, and they should use the root account only when absolutely necessary.
+
+There are several easy ways for a user to return to its home directory regardless of its current directory (i.e., the directory in which it is currently working in). The simplest of these is to use the cd (i.e., change directory) command without any options or arguments (i.e., input files), i.e., by merely typing the following and then pressing the ENTER key:
+
+cd
+
+The tilde (the wavy horizontal line character) is used to represent users' home directories on Unix-like operating systems, including users' home directories that are used to store web pages on Unix-like web servers. Thus, a user could also return to its home directory by using the tilde as an argument to cd, i.e.,
+
+cd ~
+
+The absolute pathname of a user's home directory is stored in that user's $HOME environmental variable. Environmental variables are a class of variables that tell the shell (i.e., the program that provides the text-only user interface for entering commands) how to behave as a user works at the command line (i.e., all-text mode). Thus a third way for a user to return to its home directory is to use $HOME as an argument to cd, i.e,
+
+cd $HOME
+
+4.	Create a user manolo with the uid of 33545
+Answer: # useradd –u 33545 manolo
+
+5.	Create a group called sysmgrs
+Answer: # groupadd sysmgrs
+
+6.	Create a user sarah with sysmgers as subgroup ( sarah's password is redhat)
+Answer: # usermod –a –G sysmgers sarah
+When prompted enter password: # redhat
+
+7.	Create a user natasha that cannot access the shell
+Answer: # useradd –s /sbin/nologin Natasha
+
+8.	What is the permission 765 means?
+Answer: user permission to everything and group has read and write permission only and others has read and execute permission.
+
+9.	How do you check the permission on a file/directory?
+Answer: # ls –l
+
+10.	How do you check the owner of a file?
+Answer: # ls –l filename 
+
+11.	What command would you type to change the owner of a file?
+Answer: # chown owner-user file
+
+12.	What command would you type to change to group a file belongs to?
+Answer: chown :groupname filename
+
+
+13.	What is a Soft link?
+Answer: Alternatively referred to as a symbolic link or symlink, a soft link is a file that links to another file or directory using its path. Unlike a hard link, a symbolic link can link to any file or directory on any computer. In Linux and Unix symbolic links are created with the ln command, and in the Windows command line, symbolic links are created using the mklink command. 
+Unlike a hard link, a symbolic link does not contain the data in the target file. It simply points to another entry somewhere in the file system. This difference gives symbolic links certain qualities that hard links do not have, such as the ability to link to directories, or to files on remote computers networked through NFS. Also, when you delete a target file, symbolic links to that file become unusable, whereas hard links preserve the contents of the file.
+
+14.	What is the difference between a symbolic link and a hard link?
+Answer: 
+Hard Link acts like a mirror copy of the original file. These links share the same inodes. Changes made to the original or hard linked file will reflect in the other. When you delete Hard Link nothing will happen to the other file. Hard links can't cross file systems.
+
+Soft Link is an actual link to the original file. These Links will have a different Inodes value. Soft link points to the original file so if the original file is deleted then the soft link fails. If you delete the Soft Link, nothing will happen to file. The reason for this is, the actual file or directory’s inode is different from the "soft link" created file's inodes. Soft links can cross file systems.
+
+1.	Hardlink or hardlinks cannot be created for directories (folders). Hard link can only be created for a file.
+2.	Symbolic links or symlinks can link to a directory (folder).
+3.	Removing the original file that your hard link points to does not remove the hardlink itself; the hardlink still provides the content of the underlying file.
+4.	If you remove the hard link or the symlink itself, the original file will stay intact.
+5.	Removing the original file does not remove the attached symbolic link or symlink, but without the original file, the symlink is useless (the same concept like Windows shortcut).
+
+15.	User John and user jsmith are working on a same project and need to record their progress in the same file without accessing each other's home directory.
+
+a)	How can you help them with this?
+Answer: Name and create a file for this project (Porject1), then create a group for them (sysmgers).   Add both of them to them to the new group sysmgers, then grant both John and jsmith rwx permissions to read, write and execute the file. Provide both of them the path to the file via email. 
+
+b)	Consider that john's home directory is /home/ceo and that jsmith's home directory is /home/security, go ahead and right a procedure on how to accomplish that task.
+Answer: 
+•	Create a file and name it Project1 using command line: # touch Project1
+•	Create a group called sysmgers using command line: # groupadd sysmgers
+•	Add John and jsmith to group sysmgers using command line: # usermod –a –G John
+ : # usermod –a –G jsmith
+•	Give group sysmgers ownership permission to file Project1 using command: # chmod –R John:sysmgers Project1 
+	 										  : # chmod –R jsmith:sysmgers Project1
+•	Grant only sysmgers r,w,x permissions to file Project1 using the command: # chmod –R 070 Project1
+•	Forward path link to John via email. Path link for John: /home/ceo/sysmgers/Project1
+•	Forward path link to jsmith via email. Path link for jsmith /home/security/sysmgers/Project1
+
+16.	What command do you use to change the permission on a file?
+Answer: chmod [u,g,o] filename.
+ 
+Changes the user (u), group (g) or other (o) file permission to read (r), write (w), or execute (x) the file. This procedure is done by indicating which group (u, g, or o) then use a plus sign to add a permission or a minus sign to take away a permission.
+
+An octal system can also be used: 1 is execute, 2 is write, and 4 is read. Combinations are obtained as sums.
+
+The chmod command is used to change the permissions of a file or directory. To use it, you specify the desired permission settings and the file or files that you wish to modify.
+
+17.	What is an inode?
+Answer: Several countries provides a unique identification number (for example, social security number in the USA) to the people who live in that country. This makes it easier to identify an individual uniquely. This makes it easier to handle all the paper work necessary for an individual by various government agencies and financial institutions.
+Similar to the social security number, there is a concept of Inode numbers which uniquely exist for all the files on Linux or *nix systems.
+
+Inode Basics
+An Inode number points to an Inode. An Inode is a data structure that stores the following information about a file:
+	Size of file
+	Device ID
+	User ID of the file
+	Group ID of the file
+	The file mode information and access privileges for owner, group and others
+	File protection flags
+	The timestamps for file creation, modification etc
+	link counter to determine the number of hard links
+	Pointers to the blocks storing file’s contents
+Please note that the above list is not exhaustive. It is also vital to note that, the name of the file is not stored in Inodes.
+When a file is created inside a directory then the file-name and Inode number are assigned to file. These two entries are associated with every file in a directory. The user might think that the directory contains the complete file and all the extra information related to it but this might not be the case always. So we see that a directory associates a file name with its Inode number.
+When a user tries to access the file or any information related to the file then he/she uses the file name to do so but internally the file-name is first mapped with its Inode number stored in a table. Then through that Inode number the corresponding Inode is accessed. There is a table (Inode table) where this mapping of Inode numbers with the respective Inodes is provided.
+
+18.	How do you check the inode of a file?
+Answer: # ls -li filename 
+  # ls -li /etc/resolv.conf
+	Or
+  # stat fileName-Here
+  # stat /etc/passwd
+
+19.	Set your homecentos to display the following message when the users login.
+"This is a private computer system monitored 24/7, any unauthorized use will be subject to disciplinary mesure including job termination. If you do not have the proper authorization, please logout NOW!!!!
+Answer: 
+a)	First you must login as root / su
+b)	Then login through Putty (Preferably)
+c)	Vi into the /etc/profile file.
+d)	Use the echo command: echo “This is a private computer system monitored 24/7, any unauthorized use will be subject to disciplinary mesure including job termination. If you do not have the proper authorization, please logout NOW!!!!”
+e)	Save and exit from vi back to the shell’s command prompt.
+f)	Confirm setting by logging into the shell using different user account to login. The message should display at login. 
+
+
+
