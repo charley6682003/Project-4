@@ -1,0 +1,57 @@
+ANSWERS TO PROJECT WORK NO. 12
+
+1.	What is UID?
+Answer: 	
+A user ID (UID) is a unique positive integer assigned by a Unix-like operating system to each user. Each user is identified to the system by its UID, and user names are generally used only as an interface for humans.
+UIDs are stored, along with their corresponding user names and other user-specific information, in the /etc/passwd file, which can be read with the cat command as follows:
+cat /etc/passwd
+The third field contains the UID, and the fourth field contains the group ID (GID), which by default is equal to the UID for all ordinary users.
+In the Linux kernels 2.4 and above, UIDs are unsigned 32-bit integers that can represent values from zero to 4,294,967,296. However, it is advisable to use values only up to 65,534 in order to maintain compatibility with systems using older kernels or filesystems that can only accommodate 16-bit UIDs.
+The UID of 0 has a special role: it is always the root account (i.e., the omnipotent administrative user). Although the user name can be changed on this account and additional accounts can be created with the same UID, neither action is wise from a security point of view.
+The UID 65534 is commonly reserved for nobody, a user with no system privileges, as opposed to an ordinary (i.e., non-privileged) user. This UID is often used for individuals accessing the system remotely via FTP (file transfer protocol) or HTTP (hypertext transfer protocol).
+UIDs 1 through 99 are traditionally reserved for special system users (sometimes called pseudo-users), such as wheel, daemon, lp, operator, news, mail, etc. These users are administrators who do not need total root powers, but who perform some administrative tasks and thus need more privileges than those given to ordinary users.
+Some Linux distributions (i.e., versions) begin UIDs for non-privileged users at 100. Others, such as Red Hat, begin them at 500, and still others, such Debian, start them at 1000. Because of the differences among distributions, manual intervention can be necessary if multiple distributions are used in a network in an organization.
+Also, it can be convenient to reserve a block of UIDs for local users, such as 1000 through 9999, and another block for remote users (i.e., users elsewhere on the network), such as 10000 to 65534. The important thing is to decide on a scheme and adhere to it.
+
+Among the advantages of this practice of reserving blocks of numbers for particular types of users is that it makes it more convenient to search through system logs for suspicious user activity.
+Contrary to popular belief, it is not necessary that each entry in the UID field be unique. However, non-unique UIDs can cause security problems, and thus UIDs should be kept unique across the entire organization. Likewise, recycling of UIDs from former users should be avoided for as long as possible.
+
+2.	What is GID?
+Answer: In a Unix like system, a GID (group ID) is a name that associates a system user with other users sharing something in common (perhaps a work project or a department name). It's often used for accounting purposes. A user can be a member of more than one group and thus have more than one GID. Any user using a UNIX system at a given time has both a user ID (UID) and a group ID (GID).
+
+3.	What command do you type to check the UID of an account?
+Answer: #: id -u username
+To find a user’s GID, at the Unix prompt, enter: # id –g username
+To display the UID and all groups associated with a user, enter id without any options enter: # id usename 
+
+4.	What command do you type to check what group an account belongs to?
+Answer: id –G username
+	#: id –g  username
+ #: groups username
+#: cat /etc/group 
+
+5.	What command would you type to check a user's account component?
+Answer: grep username /etc/passwd
+	#: cat /etc/passwd | grep username
+
+6.	The -g of useradd command is used to add a user to a primary group. what is the option used to add a user to a subgroup or supplementary group?
+Answer: #: usermod -a -G group1,group2,group3 username
+
+7.	How do you get help on a linux server?
+Answer: manual or --help
+	#: /user/share/doc
+
+8.	From a server prompt, how can you connect remotely to another server if you don’t have access to putty.
+Answer: ssh username@ip of remote server 
+SSH (Secure Shell) is a network protocol that provides secure access to a computer (mostly Unix based). When you want to connect to a remote Unix server, SSH is one way of accessing the server. SSH is very powerful by combining both security of the data transmitted over network and accessibility to the remote system. SSH protocol works between two computers by a client-server architecture. When a client computer connects to the server, the server requires the client to authenticate itself. There are different ways a client can authenticate itself to the server. A typical authentication mode will be to enter a password when logging into a remote system.
+
+9.	Create a file on your server called yourname, then use scp to copy it to my server.
+(96.245.84.63, username= class3 password= school1) put it in /tmp
+Answer: #: scp [path of file to send] root@[receiver's IP]:[target directory]
+
+10.	Download the redhat iso image from site ftp://96.245.84.63/software (login: class3 , password= school1 the iso image is rwd-rhel64i386.iso)
+
+11.	Watch the video on redhat installation in your video folder and then install redhat in your virtualbox.
+
+
+
