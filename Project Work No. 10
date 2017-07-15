@@ -1,0 +1,251 @@
+
+1- Definitions
+a- what is the BIOS?
+b- what is wget?
+c- what is grub?
+d- what is LILO?
+e- what is a runlevel?
+f- what is DevOps?
+g- what is VCS? give 4 examples
+h- what is a code?
+2- why is version control system so important for companies?
+3- what are some of the problem that DevOps is solving in companies?
+4- kernel.org is an online free repository for different kernel version 
+a- use wget to download the latest stable kernel version (it would be display in a yellow rectangle on the kernel.org site, right click on the yellow rectangle to copy the link address)
+b- download the kernel version 3.16.44 and put it in /tmp (right click on tarball to copy the link address)
+5- Reimport the centosproject2 server from the previous project and do a thorough inventory of the server.
+a- Os version
+b- Number of CPU's 
+c- size of CPU
+d- Size of Memory
+e- hard drive size 
+f- what is the dns on the server?
+g- what is the hostname of the server?
+h- what the ip address?
+i- what is the default gateway on that server?
+6- Describe the bootup process in linux.
+7- Please read the rest of definition from the general concept sheet.
+ANSWERS TO PROJECT WORK NO. 10
+
+1.	DEFINITIONS:
+
+a)	What is the BIOS?
+Answer: Short for Basic Input / Output System, the BIOS (pronounced bye-oss) is a ROM chip found on motherboards that allows you to access and set up your computer system at the most basic level.
+
+b)	What is wget?
+Answer: wget stands for "web get". It is a command-line utility which downloads files over a network.
+wget is a free utility for non-interactive download of files from the web. It supports HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.
+wget is non-interactive, meaning that it can work in the background, while the user is not logged on, which allows you to start a retrieval and disconnect from the system, letting wget finish the work. By contrast, most web browsers require constant user interaction, which make transferring a lot of data difficult.
+wget can follow links in HTML and XHTML pages and create local versions of remote websites, fully recreating the directory structure of the original site, which is sometimes called "recursive downloading.'' While doing that, wget respects the Robot Exclusion Standard (robots.txt). wget can be instructed to convert the links in downloaded HTML files to the local files for offline viewing.
+wget has been designed for robustness over slow or unstable network connections; if a download fails due to a network problem, it will keep retrying until the whole file has been retrieved. If the server supports regetting, it will instruct the server to continue the download from where it left off.
+
+c)	What is grub?
+Answer: GNU GRand Unified Boot loader or GRUB is a program which enables the user to select which installed operating system or kernel to load at system boot time. It also allows the user to pass arguments to the kernel.
+GRUB loads itself into memory in the following stages:
+1.	The Stage 1 or primary boot loader is read into memory by the BIOS from the MBR[1]. The primary boot loader exists on less than 512 bytes of disk space within the MBR and is capable of loading either the Stage 1.5 or Stage 2 boot loader.
+2.	The Stage 1.5 boot loader is read into memory by the Stage 1 boot loader, if necessary. Some hardware requires an intermediate step to get to the Stage 2 boot loader. This is sometimes true when the /boot/ partition is above the 1024 cylinder head of the hard drive or when using LBA mode. The Stage 1.5 boot loader is found either on the /boot/partition or on a small part of the MBR and the /boot/ partition.
+3.	The Stage 2 or secondary boot loader is read into memory. The secondary boot loader displays the GRUB menu and command environment. This interface allows selection of the kernel or operating system to boot, pass arguments to the kernel, or look at system parameters.
+4.	The secondary boot loader reads the operating system or kernel and initrd into memory. Once GRUB determines which operating system to start, it loads it into memory and transfers control of the machine to that operating system.
+The boot method used to boot Red Hat Enterprise Linux is called direct loading because the boot loader loads the operating system directly. There is no intermediary between the boot loader and the kernel.
+The boot process used by other operating systems may differ. For example; the Microsoft Windows operating system, as well as other operating systems, are loaded using chain loading. Under this method, the MBR points to the first sector of the partition holding the operating system, where it finds the files necessary to actually boot that operating system.
+GRUB supports both direct and chain loading boot methods, allowing it to boot almost any operating system.
+
+d)	What is LILO?
+Answer: LILO stands for Linux Loader that is used to load Linux into memory. It can boot operating systems from floppy disks, hard disks, and it does not depend on a specific file system. Lilo handles some tasks such as locate the kernel, identify other supporting programs, load memory, and starts the kernel. The configuration file of lilo is located at “/etc/lilo.conf”. Lilo reads this configuration file and it tells Lilo where it should place the boot loader.
+ 
+Boot process
+When LILO loads itself, it displays the name LIO where each word specifies some actions
+1) If it displays nothing then it does not load any part of LILO.
+2) L: This is the first stage of the boot loader that has been loaded. If the process stops here it denotes that there were problems in the second stage. This may occur due to some incorrect disk parameter specified in the configuration file of lilo or some media problems also.
+3) LI: It indicates that the second stage boot loader has been loaded and could not be executed. It can occur due to problems similar to L.
+4) LIL: At this stage the second stage boot loader has been completed in its execution. If it fails, this stage indicates that there were media problems or map file specified in the configuration file has some problems.
+5) LIL?: This means that the second stage boot loader loaded at an incorrect address.
+6) LIL-: This indicates that the descriptor table is corrupted.
+7) LILO: All parts are successfully loaded.
+		
+e)	What is a Runlevel?
+Answer: A runlevel is an operating state on a Unix and Unix-based operating system that is preset on the Linux-based system. Runlevels are numbered from zero to six. 
+Runlevels determine which programs can execute after the OS boots up. The runlevel defines the state of the machine after boot.
+Systems administrators set the default runlevel of a system according to their needs, or use the runlevel command to find out the machine's current runlevel to assess a system. For example, the runlevel can indicate whether or not the system's network is operational. You can use the runlevel command /sbin/runlevel to find the current and previous runlevel of an operating system.
+Runlevels zero through six are generally delegated to single-user mode, multi-user mode with and without network services started, system shutdown and system reboot. The setup of these configurations differs between Linux distros and Unix versions.
+Each basic level has a different purpose. Runlevels 0, 1, 6 are always the same. Runlevels 2 to 5 are different depending upon the Linux distribution in use. Only one runlevel is executed when the system is booted. They are not implemented sequentially. For example, either runlevel 4 or 5 or 6 is executed, not 4 then 5 then 6.
+
+f)	What is DevOps?
+Answer: DevOps is the combination of cultural philosophies, practices, and tools that increases an organization's ability to deliver applications and services at high velocity: evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes.
+
+g)	What is VCS? give 4 examples
+Answer: Version control systems “VCS” are a category of software tools that help a software team manage changes to source code over time. Version control software keeps track of every modification to the code in a special kind of database. If a mistake is made, developers can turn back the clock and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.
+For almost all software projects, the source code is like the crown jewels - a precious asset whose value must be protected. For most software teams, the source code is a repository of the invaluable knowledge and understanding about the problem domain that the developers have collected and refined through careful effort. Version control protects source code from both catastrophe and the casual degradation of human error and unintended consequences.
+Examples of VCS:
+•	Git
+•	Apache Subversion
+•	Serena
+•	Bazaar
+•	Monotone
+•	Microsoft Visual Source
+•	VisualSVN
+
+h)	What is a code?
+Answer: The following statements below could qualify as codes:
+1. Collection of laws or regulations pertaining to a specific activity or subject.
+2. Text in an encrypted (unreadable) form.
+3. Rule for translating a message from one symbolic form into another (and, usually, back into the original form) with little or no loss of information.
+4. Computer program written in a programming language as opposed to in a natural language (such as English).
+5. Input and/or output of a programming language conversion process, such as machine code, object code, source code.
+
+2.	Why is version control system so important for companies?
+Answer: Below are seven of them:
+1. Document/file repository
+Cloud-based document management systems serve as a central repository for all your important documents that can subsequently be accessed, viewed, changed and shared with colleagues. No more wasting hours upon hours of precious time frantically looking through stacks of folders to find a single document.
+2. Document/content security
+When documents are not managed, the possibility of important information being exposed to the wrong people is considerable. Vital, sensitive information falling into the wrong hands can bring irreversible damage to a business. Document management software solutions let businesses safeguard confidential business information through rigorous security policies and role-based access control (RBAC) where authorized users alone are allowed to view certain files or documents.
+In the case of disasters like fire or flooding, cloud-based DMS ensures any business-critical data are kept intact, not wiped out from the face of the earth.
+3. Anytime, anywhere access
+As is the case with cloud-based software solutions, web-based DMS affords users the ability to access files and documents anywhere, anytime, regardless of device used, which is particularly handy when collaborating on projects with team members who are on the go or located remotely.
+4. Integration with third-party software
+App integration is a nifty capability that eliminates redundant data input and allows seamless information flow between disparate platforms. Not only does it save companies time and effort, it maintains data integrity and accuracy as well. Some DMS even support email integration, affording business the ability to directly send files and documents to customers, colleagues, and vendor partners.
+5. Better organization
+With tags, categories, subcategories, and metadata to mark files and documents, they become easier to organize, locate, and retrieve for future use. A search using the appropriate keywords can yield results in a matter of seconds.
+6. Time/cost efficiency
+Employee efficiency is a time-saver. Business-wise or otherwise, time saved is money saved. Add to that the fact that keeping and running a document management system can be done at absolutely no cost (for those with free options).
+7. File sharing
+With VCS, companies get to share and collaborate on files and documents with colleagues, regardless of their location. They control who they share documents with, and files can be shared through links, published on the web or sent as password-protected files to third-party stakeholders. With the audit trail functionality, they know who has viewed or edited certain files or documents, also critical when unearthing process errors and inefficiencies.
+
+3.	What are some of the problem that DevOps is solving in companies?
+Answer: In IT, DevOps is recognized as a cultural approach. From job of point of view, it is a job description for a candidate who has the talent-skill to work as a Systems Operations engineer as well as a developer.
+Integrating DevOps in software development cycle has many benefits, and that is why modern applications rely a lot on Agile.
+
+Some of the problems that DevOps is solving in companies:
+1. Quicker mitigation of software defects
+With better communication and collaboration between operations and software development, you can identify and mitigate defects at any stage of the development cycle. The same culture can be applied to Application development, where defects prove costlier.
+2. Better resource management
+During the application and software development stage, developers and testers are constantly waiting for resources to arrive causing delays in delivery. Agile with DevOps ensures that the app development arrives in testing phase much quicker than existing operations.
+3. Reduced human errors
+DevOps reduces the chances of human errors during development and operations process by deploying frequent iterations. Lower the application failure rate with multiple deployments in the process in a defined timeline.
+4. Enhanced version control
+Emphasizing on the individuals and interactions, DevOps allows the developers to leverage on programmable dynamic infrastructure at all stages of the application development lifecycle. It allows version control and automated coding options.
+5. Stable operating environment
+Stability is the key to any business platform, and DevOps is established to bring stability with reliability. Organizations with DevOps get their deployment 30 times faster than their rivals with 50% lesser chances of failure.
+Using DevOps, companies can move from the idea phase to a final software version faster despite having multiple incremental improvements related to performance, sales, and stability in the long run.
+
+4.	Kernel.org is an online free repository for different kernel version
+5.	Reimport the centosproject2 server from the previous project and do a thorough inventory of the server.
+
+a)	Os version
+Answer: #: uname –a
+b)	Number of CPU's
+Answer: #: more /proc/cpuinfo or cat /proc/cpuinfo or less /proc/cpuinfo
+c)	Size of CPU
+Answer: # lscpu
+	: # less /proc/cpuinfo
+	: # cat /proc/cpuinfo
+d)	Size of Memory
+Answer: #: cat /proc/meminfo
+e)	Hard drive size
+Answer: # df –h
+	: # df –k (Will display output size in one-kilobyte blocks, this is normally the default)
+	: # df – m
+	: # fdisk –l |grep Disk
+f)	What is the dns on the server?
+Answer: #: cat /etc/resolve.conf
+g)	What is the hostname of the server?
+Answer: # hostname 
+	: # hostname –d (Will display the domain you are in)
+	: # hostname –I (Will display the IP address for the hostname)
+	: # hostname –a (Will display the aliases set up for the hostname)
+h)	What is the ip address?
+Answer: # ifconfig
+i)	What is the default gateway on that server?
+Answer: #: A gateway is a node or a router that acts as an access point to passes network data from local networks to remote networks. There are many ways to find out your gateway in Linux.
+You can find default gateway using ip, route and netstat commands in Linux systems.
+Route command line: # route –n
+IP command line:	# ip route show
+Netstat command line: # netstat -rn
+
+6.	Describe the bootup process in linux.
+Answer: 
+1. BIOS
+BIOS stands for Basic Input/Output System
+Performs some system integrity checks
+Searches, loads, and executes the boot loader program.
+It looks for boot loader in floppy, cd-rom, or hard drive. You can press a key (typically F12 of F2, but it depends on your system) during the BIOS startup to change the boot sequence.
+Once the boot loader program is detected and loaded into the memory, BIOS gives the control to it.
+So, in simple terms BIOS loads and executes the MBR boot loader.
+
+2. MBR
+MBR stands for Master Boot Record.
+It is located in the 1st sector of the bootable disk. Typically /dev/hda, or /dev/sda
+MBR is less than 512 bytes in size. This has three components 1) primary boot loader info in 1st 446 bytes 2) partition table info in next 64 bytes 3) mbr validation check in last 2 bytes.
+It contains information about GRUB (or LILO in old systems).
+So, in simple terms MBR loads and executes the GRUB boot loader.
+
+3. GRUB
+GRUB stands for Grand Unified Bootloader.
+If you have multiple kernel images installed on your system, you can choose which one to be executed.
+GRUB displays a splash screen, waits for few seconds, if you don’t enter anything, it loads the default kernel image as specified in the grub configuration file.
+GRUB has the knowledge of the filesystem (the older Linux loader LILO didn’t understand filesystem).
+Grub configuration file is /boot/grub/grub.conf (/etc/grub.conf is a link to this). 
+So, in simple terms GRUB just loads and executes Kernel and initrd images.
+
+4. Kernel
+Mounts the root file system as specified in the “root=” in grub.conf
+Kernel executes the /sbin/init program
+Since init was the 1st program to be executed by Linux Kernel, it has the process id (PID) of 1. One can enter the command line: # ‘ps -ef | grep init’ to check the pid.
+initrd stands for Initial RAM Disk.
+initrd is used by kernel as temporary root file system until kernel is booted and the real root file system is mounted. It also contains necessary drivers compiled inside, which helps it to access the hard drive partitions, and other hardware.
+
+5. Init
+Looks at the /etc/inittab file to decide the Linux run level.
+Following are the available run levels
+0 – halt
+1 – Single user mode
+2 – Multiuser, without NFS
+3 – Full multiuser mode
+4 – unused
+5 – X11
+6 – reboot
+Init identifies the default initlevel from /etc/inittab and uses that to load all appropriate program.
+Executing ‘grep initdefault /etc/inittab’ on the Linux system will identify the default run level
+Typically you would set the default run level to either 3 or 5.
+
+6. Runlevel programs
+When the Linux system is booting up, you might see various services getting started. For example, it might say “starting sendmail …. OK”. Those are the runlevel programs, executed from the run level directory as defined by your run level.
+Depending on your default init level setting, the system will execute the programs from one of the following directories.
+Run level 0 – /etc/rc.d/rc0.d/
+Run level 1 – /etc/rc.d/rc1.d/
+Run level 2 – /etc/rc.d/rc2.d/
+Run level 3 – /etc/rc.d/rc3.d/
+Run level 4 – /etc/rc.d/rc4.d/
+Run level 5 – /etc/rc.d/rc5.d/
+Run level 6 – /etc/rc.d/rc6.d/
+Please note that there are also symbolic links available for these directory under /etc directly. So, /etc/rc0.d is linked to /etc/rc.d/rc0.d.
+Under the /etc/rc.d/rc*.d/ directories, you would see programs that start with S and K.
+Programs starts with S are used during startup. S for startup.
+Programs starts with K are used during shutdown. K for kill.
+There are numbers right next to S and K in the program names. Those are the sequence number in which the programs should be started or killed.
+For example, S12syslog is to start the syslog deamon, which has the sequence number of 12. S80sendmail is to start the sendmail daemon, which has the sequence number of 80. So, syslog program will be started before sendmail.
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
