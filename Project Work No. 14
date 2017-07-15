@@ -1,0 +1,316 @@
+                       Project14
+
+
+1- what is sticky bit?
+2- what role does sticky play on a directory?
+3- what directory on your server has sticky bit set on it?
+4- what is the difference between /usr/local/*  and /usr/local*
+5- what is ssh?
+6- what is ssl?
+7- why is putty considered secured?
+8- what is selinux?
+9- set your server's selinux to permissive mode
+10- Create a shared directory /home/managers with the following characteristics: /home/managers belong to group sysmgrs
+This directory can be read, written and accessed by members of sysmgrs.
+Any files created in /home/managers, the group is automatically set as sysmgrs
+All other users should not be able to access (execute) the /home/managers directory. (The user root can always read and write, no matter the permissions)
+
+11-what happen when you type a url on the browser until the page come on?
+12- what is a tree way hand shake?
+13- what is the boot up process in linux ?
+14- how do you update the Os version of your linux server?
+
+
+
+
+
+
+ANSWERS TO PROJECT WORK NO. 14
+
+1.	What is sticky bit?
+Answer: The sticky bit is a permission bit that protects the files within a directory. If the directory has the sticky bit set, a file can be deleted only by the owner of the file, the owner of the directory, or by root. This special permission prevents a user from deleting other users' files from public directories such as /tmp:
+Therefore, a Sticky bit can be defined as a permission bit that is set on a file or a directory that lets only the owner of the file/directory or the root user to delete or rename the file. No other user is given privileges to delete the file created by some other user.
+
+2.	What role does sticky play on a directory?
+Answer: The sticky bit for a directory sets a special restriction on deletion of files: Only the owner of the file (and root) can delete files within the directory.
+The sticky bit is not a new concept. In fact, it was first introduced in in 1974 in the Unix operating system. The purpose of sticky bit back then was different. It was introduced to minimize the time delay introduced every time when a program is executed.
+When a program is executed, it takes time to load the program into memory before the user can actually start using it. If a program, for example an editor is used frequently by users the the start-up time delay was an overhead back then.
+To improve this time delay, the sticky bit was introduced. The OS checked that if sticky bit on an executable is ON, then the text segment of the executable was kept in the swap space. This made it easy to load back the executable into RAM when the program was run again thus minimizing the time delay.
+Though this method proved successful in minimizing the start-up time delay but there was a major problem that surfaced due to this operation. The problem was that if some kind of patch was applied to the executable as a bug fix or a new feature then the following steps were to be carried to out :
+	First remove the sticky bit from the executable
+	Now, run the executable and exit it so that the existing text segment from the swap is flushed
+	Now, again set the sticky bit on the executable and re-run the executable so that new text segment is stored in swap memory
+The above steps were required so that the program reflect the new features or bug fixes that were added to the executable.
+So this was one of the main problems. Also, with the evolution of technology, fast memory access techniques evolved which kind of obsoleted the requirement of sticky bit for this purpose.
+
+3.	What directory on your server has sticky bit set on it?
+Answer: In computing, the sticky bit is a user ownership access right flag that can be assigned to files and directories on Unix-like systems.
+When a directory's sticky bit is set, the filesystem treats the files in such directories in a special way so only the file's owner, the directory's owner, or root user can rename or delete the file. Without the sticky bit set, any user with write and execute permissions for the directory can rename or delete contained files, regardless of the file's owner. Typically this is set on the /tmp directory to prevent ordinary users from deleting or moving other users' files.
+The modern function of the sticky bit was introduced in 1986, and is found in most modern Unix-like systems.
+
+4.	What is the difference between /usr  and /usr/local*
+Answer: Locally installed software must be placed within /usr/local rather than /usr unless it is being installed to replace or upgrade software in /usr.
+
+The original idea behind '/usr/local' was to have a separate ('local') '/usr' directory on every machine besides '/usr', which might be just mounted read-only from somewhere else. It copies the structure of '/usr'. These days, '/usr/local' is widely regarded as a good place in which to keep self-compiled or third-party programs.
+
+The /usr/local hierarchy is for use by the system administrator when installing software locally. It needs to be safe from being overwritten when the system software is updated. It may be used for programs and data that are shareable amongst a group of hosts, but not found in /usr. Locally installed software must be placed within /usr/local rather than /usr unless it is being installed to replace or upgrade software in /usr.
+
+5.	What is ssh?
+Answer: SSH, also known as Secure Socket Shell, is a network protocol that provides administrators with a secure way to access a remote computer. SSH also refers to the suite of utilities that implement the protocol. Secure Shell provides strong authentication and secure encrypted data communications between two computers connecting over an insecure network such as the Internet. SSH is widely used by network administrators for managing systems and applications remotely, allowing them to log in to another computer over a network, execute commands and move files from one computer to another.
+
+6.	What is ssl?
+Answer: SSL (Secure Sockets Layer) is the standard security technology for establishing an encrypted link between a web server and a browser. This link ensures that all data passed between the web server and browsers remain private and integral. SSL is an industry standard and is used by millions of websites in the protection of their online transactions with their customers.
+
+To be able to create an SSL connection a web server requires an SSL Certificate. When you choose to activate SSL on your web server you will be prompted to complete a number of questions about the identity of your website and your company. Your web server then creates two cryptographic keys - a Private Key and a Public Key.
+
+The Public Key does not need to be secret and is placed into a Certificate Signing Request (CSR) - a data file also containing your details. You should then submit the CSR. During the SSL Certificate application process, the Certification Authority will validate your details and issue an SSL Certificate containing your details and allowing you to use SSL. Your web server will match your issued SSL Certificate to your Private Key. Your web server will then be able to establish an encrypted link between the website and your customer's web browser.
+
+The complexities of the SSL protocol remain invisible to your customers. Instead their browsers provide them with a key indicator to let them know they are currently protected by an SSL encrypted session - the lock icon in the lower right-hand corner, clicking on the lock icon displays your SSL Certificate and the details about it. All SSL Certificates are issued to either companies or legally accountable individuals.
+
+Typically an SSL Certificate will contain a domain name, a company name, an address, the city, state and the country of a business or establishment. It will also contain the expiration date of the Certificate and details of the Certification Authority responsible for the issuance of the Certificate. When a browser connects to a secure site it will retrieve the site's SSL Certificate and check that it has not expired, it has been issued by a Certification Authority the browser trusts, and that it is being used by the website for which it has been issued. If it fails on any one of these checks the browser will display a warning to the end user letting them know that the site is not secured by SSL.
+
+7.	Why is putty considered secured?
+Answer: SSH does not depend on the SSL notion of signed certificate chains. SSH is using encryption, and certificates. You can also use user certificates instead of password based authentication (recommended).
+
+SSH depends on a TOFU (Time of first use) certificate validation. When you connect to the server, it asks you to verify the key. The client then remembers this key. If the server suddenly presents a different key (possibly a man in the middle attack), you will be unable to connect without manual intervention.
+PuTTY is a free implementation of  SSH (and telnet) for PCs running Microsoft Windows (it also includes an xterm terminal emulator). You will find PuTTY useful if you want to access an account on a Unix or other multi-user system from a PC (for example your own or one in an internet cafe). In the case of the University of Sussex, this would include users of the central ITS Unix system and of the Unix systems provided by some other schools and units. The central ITS Unix system supports the use of SSH clients. Users of other systems should ask their system administrator if SSH is supported.
+
+PuTTY is an alternative to telnet clients. Its primary advantage is that SSH provides a secure, encrypted connection to the remote system. It's also small and self-contained and can be carried around on a floppy disk. This makes it ideal for accessing Sussex systems securely from other locations on the public Internet. 
+
+Although still only a beta (pre-production) release, PuTTY is full-featured, stable and its terminal emulation is good. Since version 0.53, it also supports the passthrough printing feature of VT100 terminals. (Details of how to print from Pine when using PuTTY can be found in the Online Help Desk, FAQ no. 1004)
+ 
+To make a quick connection from a PC that you may not use again
+
+•	open PuTTY
+•	when asked, choose to 'Run this program from its current location'
+•	when prompted, 'Do you want to install and run "putty.exe from the.earth.li"?', click on Yes.
+•	under Protocol:, click on the SSH radio button
+•	then click on the Open button
+•	in answer to the dialog box titled PuTTY security alert, click on Yes - y
+•	login to the Unix system as normal
+
+8.	What is selinux?
+Answer: Answer: Security-Enhanced Linux (SELinux) is a Linux kernel security module that provides a mechanism for supporting access control security policies, including United States Department of Defense–style mandatory access controls (MAC).
+SELinux is a set of kernel modifications and user-space tools that have been added to various Linux distributions. Its architecture strives to separate enforcement of security decisions from the security policy itself and streamlines the volume of software charged with security policy enforcement. The key concepts underlying SELinux can be traced to several earlier projects by the United States National Security Agency (NSA) NSA Security-enhanced Linux is a set of patches to the Linux kernel and some utilities to incorporate a strong, flexible mandatory access control (MAC) architecture into the major subsystems of the kernel. It provides an enhanced mechanism to enforce the separation of information based on confidentiality and integrity requirements, which allows threats of tampering and bypassing of application security mechanisms to be addressed and enables the confinement of damage that can be caused by malicious or flawed applications. It includes a set of sample security policy configuration files designed to meet common, general-purpose security goals
+
+9.	Set your server's selinux to permissive mode
+Answer: SELinux gives that extra layer of security to the resources in the system. It provides the MAC (mandatory access control) as contrary to the DAC (Discretionary access control). 
+SELinux can operate in any of the 3 modes :
+
+1. Enforced : Actions contrary to the policy are blocked and a corresponding event is logged in the audit log.
+2. Permissive : Actions contrary to the policy are only logged in the audit log.
+3. Disabled : The SELinux is disabled entirely
+
+	To set SELinux to Permissive mode, use either of these methods:
+1. Set SELinux mode to Permissive temporary (without reboot)
+The setenforce command is used to change between enforcing and permissive mode. To change to permissive mode:
+# setenforce 0
+Use the getenforce command to view current SELinux mode:
+# getenforce
+Permissive
+2. Setting SELinux to Permissive mode permanently
+a. Edit /etc/selinux/config
+Change the SELINUX value to “SELINUX=permissive”
+# cat /etc/selinux/config
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=permissive
+# SELINUXTYPE= can take one of these two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+b. Append kernel boot options
+Edit the kernel boot line and append “enforcing=0” to the kernel boot options (Assuming SELinux is not set to disabled as in section above). For example:
+title Red Hat Enterprise Linux AS (2.6.9-42.ELsmp)
+root (hd0,0)
+kernel /vmlinuz-2.6.9-42.ELsmp ro root=LABEL=/ rhgb quiet enforcing=0
+initrd /initrd-2.6.9-42.ELsmp.img
+Reboot the server.
+# shutdown -r now
+To check the status of SELinux, issue:
+# sestatus
+	
+10.	 Create a shared directory /home/managers with the following characteristics: /home/managers belong to group sysmgrs
+This directory can be read, written and accessed by members of sysmgrs.
+Any files created in /home/managers, the group is automatically set as sysmgrs
+All other users should not be able to access (execute) the /home/managers directory. (The user root can always read and write, no matter the permissions)
+
+Answer: # mkdir /home/managers
+ 	: # groupadd /home/managers sysmgrs
+	: # chmod g+s /home/managers
+	: # chmod 670 sysmgrs
+	: # ls -l
+
+11.	What happens when you type a url on the browser until the page come on?
+Answer: 
+1)	The browser extracts the domain name from the URL.
+2)	The browser queries DNS for the IP address of the URL. Generally, the browser will have cached domains previously visited, and the operating system will have cached queries from any number of applications. If neither the browser nor the OS have a cached copy of the IP address, then a request is sent off to the system's configured DNS server. The client machine knows the IP address for the DNS server, so no lookup is necessary.
+3)	The request sent to the DNS server is almost always smaller than the maximum packet size, and is thus sent off as a single packet. In addition to the content of the request, the packet includes the IP address it is destined for in its header. Except in the simplest of cases (network hubs), as the packet reaches each piece of network equipment between the client and server, that equipment uses a routing table to figure out what node it is connected to that is most likely to be part of the fastest route to the destination. The process of determining which path is the best choice differs between equipment and can be very complicated.
+4)	There is either lost (in which case the request fails or is reiterated), or makes it to its destination, the DNS server.
+5)	If that DNS server has the address for that domain, it will return it. Otherwise, it will forward the query along to DNS server it is configured to defer to. This happens recursively until the request is fulfilled or it reaches an authoritative name server and can go no further. (If the authoritative name server doesn't recognize the domain, the response indicates failure and the browser generally gives an error like "Can't find the server at www.lkliejafadh.com".) The response makes its way back to the client machine much like the request traveled to the DNS server.
+6)	Assuming the DNS request is successful, the client machine now has an IP address that uniquely identifies a machine on the Internet. The web browser then assembles an HTTP request, which consists of a header and optional content. The header includes things like the specific path being requested from the web server, the HTTP version, any relevant browser cookies, etc. In the case in question (hitting Enter in the address bar), the content will be empty. In other cases, it may include form data like a username and password (or the content of an image file being uploaded, etc.)
+7)	This HTTP request is sent off to the web server host as some number of packets, each of which is routed in the same way as the earlier DNS query. (The packets have sequence numbers that allow them to be reassembled in order even if they take different paths.) Once the request arrives at the webserver, it generates a response (this may be a static page, served as-is, or a more dynamic response, generated in any number of ways.) The web server software sends the generated page back to the client.
+8)	Assuming the response HTML and not an image or data file, then the browser parses the HTML to render the page. Part of this parsing and rendering process may be the discovery that the web page includes images or other embedded content that is not part of the HTML document. The browser will then send off further requests (either to the original web server or different ones, as appropriate) to fetch the embedded content, which will then be rendered into the document as well.
+
+12.	What is a tree way hand shake?
+Answer: A three-way handshake is a method used in a TCP/IP network to create a connection between a local host/client and server. It is a three-step method that requires both the client and server to exchange SYN and ACK (acknowledgment) packets before actual data communication begins.
+
+A three-way handshake is also known as a TCP handshake. A three-way handshake is primarily used to create a TCP socket connection. It works when:
+
+•	A client node sends a SYN data packet over an IP network to a server on the same or an external network. The objective of this packet is to ask/infer if the server is open for new connections.
+•	The target server must have open ports that can accept and initiate new connections. When the server receives the SYN packet from the client node, it responds and returns a confirmation receipt – the ACK packet or SYN/ACK packet.
+•	The client node receives the SYN/ACK from the server and responds with an ACK packet. 
+Upon completion of this process, the connection is created and the host and server can communicate.
+
+13.	What is the boot up process in linux?
+Answer: 
+1. BIOS
+BIOS stands for Basic Input/Output System
+Performs some system integrity checks
+Searches, loads, and executes the boot loader program.
+It looks for boot loader in floppy, cd-rom, or hard drive. You can press a key (typically F12 of F2, but it depends on your system) during the BIOS startup to change the boot sequence.
+Once the boot loader program is detected and loaded into the memory, BIOS gives the control to it.
+So, in simple terms BIOS loads and executes the MBR boot loader.
+
+2. MBR
+MBR stands for Master Boot Record.
+It is located in the 1st sector of the bootable disk. Typically /dev/hda, or /dev/sda
+MBR is less than 512 bytes in size. This has three components 1) primary boot loader info in 1st 446 bytes 2) partition table info in next 64 bytes 3) mbr validation check in last 2 bytes.
+It contains information about GRUB (or LILO in old systems).
+So, in simple terms MBR loads and executes the GRUB boot loader.
+
+3. GRUB
+GRUB stands for Grand Unified Bootloader.
+If you have multiple kernel images installed on your system, you can choose which one to be executed.
+GRUB displays a splash screen, waits for few seconds, if you don’t enter anything, it loads the default kernel image as specified in the grub configuration file.
+GRUB has the knowledge of the filesystem (the older Linux loader LILO didn’t understand filesystem).
+Grub configuration file is /boot/grub/grub.conf (/etc/grub.conf is a link to this). The following is sample grub.conf of CentOS.
+#boot=/dev/sda
+default=0
+timeout=5
+splashimage=(hd0,0)/boot/grub/splash.xpm.gz
+hiddenmenu
+title CentOS (2.6.18-194.el5PAE)
+          root (hd0,0)
+          kernel /boot/vmlinuz-2.6.18-194.el5PAE ro root=LABEL=/
+          initrd /boot/initrd-2.6.18-194.el5PAE.img
+As you notice from the above info, it contains kernel and initrd image.
+So, in simple terms GRUB just loads and executes Kernel and initrd images.
+
+4. Kernel
+Mounts the root file system as specified in the “root=” in grub.conf
+Kernel executes the /sbin/init program
+Since init was the 1st program to be executed by Linux Kernel, it has the process id (PID) of 1. Do a ‘ps -ef | grep init’ and check the pid.
+initrd stands for Initial RAM Disk.
+initrd is used by kernel as temporary root file system until kernel is booted and the real root file system is mounted. It also contains necessary drivers compiled inside, which helps it to access the hard drive partitions, and other hardware.
+
+5. Init
+Looks at the /etc/inittab file to decide the Linux run level.
+Following are the available run levels
+0 – halt
+1 – Single user mode
+2 – Multiuser, without NFS
+3 – Full multiuser mode
+4 – unused
+5 – X11
+6 – reboot
+Init identifies the default initlevel from /etc/inittab and uses that to load all appropriate program.
+Execute ‘grep initdefault /etc/inittab’ on your system to identify the default run level
+If you want to get into trouble, you can set the default run level to 0 or 6. Since you know what 0 and 6 means, probably you might not do that.
+Typically you would set the default run level to either 3 or 5.
+
+6. Runlevel programs
+When the Linux system is booting up, you might see various services getting started. For example, it might say “starting sendmail …. OK”. Those are the runlevel programs, executed from the run level directory as defined by your run level.
+Depending on your default init level setting, the system will execute the programs from one of the following directories.
+Run level 0 – /etc/rc.d/rc0.d/
+Run level 1 – /etc/rc.d/rc1.d/
+Run level 2 – /etc/rc.d/rc2.d/
+Run level 3 – /etc/rc.d/rc3.d/
+Run level 4 – /etc/rc.d/rc4.d/
+Run level 5 – /etc/rc.d/rc5.d/
+Run level 6 – /etc/rc.d/rc6.d/
+Please note that there are also symbolic links available for these directory under /etc directly. So, /etc/rc0.d is linked to /etc/rc.d/rc0.d.
+Under the /etc/rc.d/rc*.d/ directories, you would see programs that start with S and K.
+Programs starts with S are used during startup. S for startup.
+Programs starts with K are used during shutdown. K for kill.
+There are numbers right next to S and K in the program names. Those are the sequence number in which the programs should be started or killed.
+For example, S12syslog is to start the syslog deamon, which has the sequence number of 12. S80sendmail is to start the sendmail daemon, which has the sequence number of 80. So, syslog program will be started before sendmail.
+
+14.	How do you update the Os version of your linux server?
+Answer: Like any other software, an operating system needs to be updated. Updates are required not only because of the new hardware coming into the market, but also for improving the overall performance and taking care of security issues.
+Updates are usually done in two distinct ways. One is called the incremental update, and the other is the major update. In the incremental updates, components of the operating system undergo minor modifications. Such modifications are usually informed to users over the net. Users can download and install the modifications serially using the update managing software.
+However, some major modifications require so many changes involving several packages simultaneously, it becomes rather complicated to accomplish serially over the net. This type of modification is best done by a fresh installation, after acquiring the improved version of the operating system.
+Package management is one of the most distinctive features distinguishing major Linux distributions. Major projects offer a graphical user interface where users can select a package and install it with a mouse click. These programs are front-ends to the low-level utilities to manage the tasks associated with installing packages on a Linux system. Although many desktop Linux users feel comfortable installing packages through these GUI tools, the command-line package management offers two excellent features not available in any graphical package management utility, and that is power and speed.
+The Linux world is sharply divided into three major groups, each swearing by the type of package management they use - the “RPM” group, the “DEB” group and the “Slackware” group. There are other fragment groups using different package management types, but they are insignificantly minor in comparison. Among the three groups, RPM and DEB are by far the most popular and several other groups have been derived from them. Some of the Linux distributions that handle these package managements are:
+RPM - RedHat Enterprise/Fedora/CentOS/OpenSUSE/Mandriva, etc.
+DEB - Debian/Ubuntu/Mint/Knoppix, etc. 
+ 
+RPM - REDHAT PACKAGE MANAGER
+Although RPM was originally used by RedHat, this package management is handled by different types of package management tools specific to each Linux distribution. While OpenSUSE uses the “zypp” package management utility, RedHat Enterprise Linux (REL), Fedora and CentOS use “yum”, and Mandriva and Mageia use “urpmi”.
+Therefore, if you are an OpenSUSE user, you will use the following commands:
+For updating your package list: zypper refresh
+For upgrading your system: zypper update
+For installing new software pkg: zypper install pkg (from package repository)
+For installing new software pkg: zypper install pkg (from package file)
+For updating existing software pkg: zypper update -t package pkg
+For removing unwanted software pkg: zypper remove pkg
+For listing installed packages: zypper search -ls
+For searching by file name: zypper wp file
+For searching by pattern: zypper search -t pattern pattern
+For searching by package name pkg: zypper search pkg
+For listing repositories: zypper repos
+For adding a repository: zypper addrepo pathname
+For removing a repository: zypper removerepo name
+ 
+If you are a Fedora or CentOS user, you will be using the following commands:
+For updating your package list: yum check-update
+For upgrading your system: yum update
+For installing new software pkg: yum install pkg (from package repository)
+For installing new software pkg: yum localinstall pkg (from package file)
+For updating existing software pkg: yum update pkg
+For removing unwanted software pkg: yum erase pkg
+For listing installed packages: rpm -qa
+For searching by file name: yum provides file
+For searching by pattern: yum search pattern
+For searching by package name pkg: yum list pkg
+For listing repositories: yum repolist
+For adding a repository: (add repo to /etc/yum.repos.d/)
+For removing a repository: (remove repo from /etc/yum.repos.d/)
+ 
+You may be a Mandriva or Mageia user, in which case, the commands you will use will be:
+For updating your package list: urpmi update -a
+For upgrading your system: urpmi --auto-select
+For installing new software pkg: urpmi pkg (from package repository)
+For installing new software pkg: urpmi pkg (from package file)
+For updating existing software pkg: urpmi pkg
+For removing unwanted software pkg: urpme pkg
+For listing installed packages: rpm -qa
+For searching by file name: urpmf file
+For searching by pattern: urpmq --fuzzy pattern
+For searching by package name pkg: urpmq pkg
+For listing repositories: urpmq --list-media
+For adding a repository: urpmi.addmedia name path
+For removing a repository: urpmi.removemedia media
+
+DEB - DEBIAN PACKAGE MANAGER
+Debian Package Manager was introduced by Debian and later adopted by all derivatives of Debian - Ubuntu, Mint, Knoppix, etc. This is a relatively simple and standardized set of tools, working across all the Debian derivatives. Therefore, if you use any of the distributions managed by the DEB package manager, you will be using the following commands:
+For updating your package list: apt-get update
+For upgrading your system: apt-get upgrade
+For installing new software pkg: apt-get install pkg (from package repository)
+For installing new software pkg: dpkg -i pkg (from package file)
+For updating existing software pkg: apt-get install pkg
+For removing unwanted software pkg: apt-get remove pkg
+For listing installed package: dpkg -l
+For searching by file name: apt-file search path
+For searching by pattern: apt-cache search pattern
+For searching by package name pkg: apt-cache search pkg
+For listing repositories: cat /etc/apt/sources.list
+For adding a repository: (edit /etc/apt/sources.list)
+For removing a repository: (edit /etc/apt/sources.list)
+
+
+
