@@ -1,0 +1,106 @@
+                                 Project15
+
+1- what is the sed command ?
+2- what is the awk command?
+3- what is the diff command? 
+4- sed command 
+a- create a test file with the content of passwd file,
+b- Type a single command to replace all the "nologin" by "bash"
+c- Type a command to insert "This file carries user accounts" at  the top of your test file.
+d- Type a command to insert "From here down are account created by the administrator"
+right after the line with tcpdump.
+
+5- Type a command to display the cpu size in MHZ  ( you can filter the lscpu command to accomplish this.
+6- Type a command to display the total memory size ( just the size without any other output.
+7- Type a command to display just the memory used
+8- Type a command to display just the available memory
+9- in which case do you use the diff command ?
+10- what is an inode and how do you checkt it ?
+11- what is an exit code?
+12- what is an exit code of 0 represent?
+13- what is the sort command?
+14- what command would you type to lock an account ?
+15- what command would you type to unlock it?
+
+
+
+
+
+ANSWERS TO PROJECT WORK NO. 15
+
+1.	What is the sed command?
+Answer: sed stands for stream editor. A stream editor is used to perform basic text transformations on an input stream (a file, or input from a pipeline). While in some ways similar to an editor which permits scripted edits (such as ed), sed works by making only one pass over the input(s), and is consequently more efficient. But it is sed's ability to filter text in a pipeline which particularly distinguishes it from other types of editors.
+
+2.	What is the awk command?
+Answer: Awk is one of the most powerful tools in Unix used for processing the rows and columns in a file. Awk has built in string functions and associative arrays. Awk supports most of the operators, conditional blocks, and loops available in C language.
+Awk is an interpreted programming language developed for text processing by Alfred Aho, Peter Weinberger, and Brian Kernighan in 1977. The initials of the three authors' last names make up the program's name. Various forms of awk (nawk, gawk and others) are available in almost every version of Linux, and they are easy to use from the command line. Being a powerful command-line tool also means awk is effective over Secure Shell.
+The language is used to process text files. By default each line of a file is treated as a record. The record is then further broken up into a sequence of fields. Awk programs are just a list of pattern-action statements that are performed on the records and fields. Awk reads through the files sequentially and when it matches a pattern, it prompts a related action.
+
+3.	What is the diff command?
+Answer: Answer: The UNIX diff command compares the contents of two text files and outputs a list of differences. If desired, you may instruct it to ignore spacing or case variations. This command can also verify that two files contain the same data.
+
+The syntax is relatively simple: # diff [options] file1 file2
+
+When this UNIX file comparison tool finds differences, it lists all of the lines that do NOT match. A greater-than or less-than symbol appears at the beginning of each line. "<" means that the text appears in file1, and ">" indicates that it comes from file2.
+
+4.	Sed command
+
+a)	create a test file with the content of passwd file,
+Answer: # touch /etc/passwd test
+
+b)	Type a single command to replace all the "nologin" by "bash"
+Answer: # sed  ‘s/nologin/bash/g’ test
+
+c)	Type a command to insert "This file carries user accounts" at the top of your test file.
+Answer:# sed  ‘1i\This file carries user accounts’ test
+
+d)	Type a command to insert "From here down are account created by the administrator"
+right after the line with tcpdump.
+Answer:  cat sort –n test (To dispaly the test file in numerical order)
+	: sed ‘s31i\From here down are accounts created by the administrator’ test
+
+5.	Type a command to display the cpu size in MHZ  ( you can filter the lscpu command to accomplish this)
+Answer: # lscpu | grep “CPU MHz”
+
+6.	Type a command to display the total memory size (just the size without any other output)
+Answer: cat /proc/meminfo | head -1 (Will display only the memory size) 
+: egrep –color ‘Mem|Chache|Swap’ /proc/meminfo (Will display the memory, chache and swap size in color)
+
+7.	Type a command to display just the memory used
+Answer: # free –m
+
+8.	Type a command to display just the available memory
+Answer: cat /proc/meminfo | head -2
+
+9.	In which case do you use the diff command?
+Answer: The diff command analyzes two files and prints the lines that are different. Essentially, it outputs a set of instructions for how to change one file to make it identical to the second file.
+It does not actually change the files; however, it can optionally generate a script (with the -e option) for the program ed (or ex which can be used to apply the changes.
+
+10.	What is an inode and how do you checkt it?
+Answer: An inode is a data structure on a Unix / Linux file system. An inode stores basic information about a regular file, directory, or other file system object. 
+The following two commands can be used to display an inode:
+•	Ls –I filename
+•	Stat filename
+
+11.	What is an exit code?
+Answer: An exit code, or sometimes known as a return code, is the code returned to a parent process by an executable. On POSIX systems the standard exit code is 0 for success and any number from 1 to 255 for anything else.
+Exit codes can be interpreted by machine scripts to adapt in the event of successes of failures. If exit codes are not set the exit code will be the exit code of the last run command.
+The exit command terminates a script, just as in a C program. It can also return a value, which is available to the script's parent process.
+.
+At the command prompt, to get the exit code of a command type: # echo $? 
+
+12.	What is an exit code of 0 represent?
+Answer: Every command returns an exit status (sometimes referred to as a return status or exit code). A successful command returns a 0, while an unsuccessful one returns a non-zero value that usually can be interpreted as an error code. Well-behaved UNIX commands, programs, and utilities return a 0 exit code upon successful completion, though there are some exceptions
+
+13.	What is the sort command?
+Answer: The sort command is a command line utility for sorting lines of text files. It supports sorting alphabetically, in reverse order, by number, by month and can also remove duplicates. The sort command can also sort by items not at the beginning of the line, ignore case sensitivity and return whether a file is sorted or not.
+The sort command sorts lines in the files specified by the File parameter and writes the result to standard output. If the File parameter specifies more than one file, the sort command concatenates the files and sorts them as one file. A -(minus sign) in place of a file name specifies standard input. If you do not specify any file names, the command sorts standard input. An output file can be specified with the -o flag.
+If no flags are specified, the sort command sorts entire lines of the input file based upon the collation order of the current locale.
+
+14.	What command would you type to lock an account?
+Answer: chuser account_locked=true USERNAME
+
+15.	What command would you type to unlock it?
+Answer: # chuser account_locked=false USERNAME
+
+
