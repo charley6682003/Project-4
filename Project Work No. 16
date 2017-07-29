@@ -1,0 +1,200 @@
+       Project 16
+
+1- What is ssh?
+2- What is the default port for ssh?
+3- Can the default port be changed?
+4- What is the configuration file for ssh?
+5- how do you check which port the ssh is configured on?
+6- What is the difference between telnet and ssh?
+7- what is the command to keep ssh daemon on at next reboot?
+8- How do you disable root login thru ssh?
+9- Is it possible to login thru ssh without password? if no/yes why?
+10- How do you set up a key based authentication thru ssh?
+11- what is a tar file?
+12- What is the extention of a tarball file?
+13- what is gunzip?
+14- login to your server, create a tarbal file with the content of your home directory.
+The tarball should be called yourname.tar
+15- use gunzip tool to compress your tarball file.
+16- securely copy your compressed file to my server in /tmp (96.245.84.63 user=class3, passwd=school1)
+
+
+
+
+
+
+
+
+
+ANSWERS TO PROJECT WORK NO. 16
+
+1.	What is SSH?
+Answer: SSH, also known as Secure Socket Shell, is a network protocol that provides administrators with a secure way to access a remote computer. SSH also refers to the suite of utilities that implement the protocol. Secure Shell provides strong authentication and secure encrypted data communications between two computers connecting over an insecure network such as the Internet. SSH is widely used by network administrators for managing systems and applications remotely, allowing them to log in to another computer over a network, execute commands and move files from one computer to another.
+
+2.	What is the default port for SSH?
+Answer: SSH is typically used to log into a remote machine and execute commands, but it also supports tunneling, forwarding TCP ports and X11 connections; it can transfer files using the associated SSH file transfer (SFTP) or secure copy (SCP) protocols. SSH uses the client-server model.
+
+The standard TCP port 22 has been assigned for contacting SSH servers.
+
+An SSH client program is typically used for establishing connections to an SSH daemon accepting remote connections. Both are commonly present on most modern operating systems, including macOS, most distributions of Linux, OpenBSD, FreeBSD, NetBSD, Solaris and OpenVMS. Notably, Windows is one of the few modern desktop/server OSs that does not include SSH by default. Proprietary, freeware and open source (e.g. PuTTY, and the version of OpenSSH which is part of Cygwin) versions of various levels of complexity and completeness exist. Native Linux file managers (e.g. Konqueror) can use the FISH protocol to provide a split-pane GUI with drag-and-drop. The open source Windows program WinSCP provides similar file management (synchronization, copy, remote delete) capability using PuTTY as a back-end. Both WinSCP and PuTTY are available packaged to run directly off a USB drive, without requiring installation on the client machine. Setting up an SSH server in Windows typically involves installation (e.g. via installing Cygwin.
+
+SSH is important in cloud computing to solve connectivity problems, avoiding the security issues of exposing a cloud-based virtual machine directly on the Internet. An SSH tunnel can provide a secure path over the Internet, through a firewall to a virtual machine.
+
+3.	Can the default port be changed?
+Answer: Users with a Linux server can change their SSH port to something other than the default port (22).
+
+To Change the SSH Port for Linux Server:
+
+a)	Connect to your server via SSH.
+b)	Switch to the root user.
+c)	Run the following command: # vi /etc/ssh/sshd_config
+d)	Locate the following line: # Port 22
+e)	Remove # and change 22 to your desired port number.
+f)	Restart the sshd service by running the following command: # service sshd restart
+
+4.	What is the configuration file for SSH?
+Answer: ssh_config file
+OpenSSH has two different sets of configuration files: one for client programs (ssh, scp, and sftp) and one for the server daemon (sshd).
+System-wide SSH configuration information is stored in the /etc/ssh/ directory:
+•	moduli — Contains Diffie-Hellman groups used for the Diffie-Hellman key exchange which is critical for constructing a secure transport layer. When keys are exchanged at the beginning of an SSH session, a shared, secret value is created which cannot be determined by either party alone. This value is then used to provide host authentication.
+•	ssh_config — The system-wide default SSH client configuration file. It is overridden if one is also present in the user's home directory (~/.ssh/config).
+•	sshd_config — The configuration file for the sshd daemon.
+•	ssh_host_dsa_key — The DSA private key used by the sshd daemon.
+•	ssh_host_dsa_key.pub — The DSA public key used by the sshd daemon.
+•	ssh_host_key — The RSA private key used by the sshd daemon for version 1 of the SSH protocol.
+•	ssh_host_key.pub — The RSA public key used by the sshd daemon for version 1 of the SSH protocol.
+•	ssh_host_rsa_key — The RSA private key used by the sshd daemon for version 2 of the SSH protocol.
+•	ssh_host_rsa_key.pub — The RSA public key used by the sshd for version 2 of the SSH protocol.
+User-specific SSH configuration information is stored in the user's home directory within the ~/.ssh/ directory:
+•	authorized_keys — This file holds a list of authorized public keys for servers. When the client connects to a server, the server authenticates the client by checking its signed public key stored within this file.
+•	id_dsa — Contains the DSA private key of the user.
+•	id_dsa.pub — The DSA public key of the user.
+•	id_rsa — The RSA private key used by ssh for version 2 of the SSH protocol.
+•	id_rsa.pub — The RSA public key used by ssh for version 2 of the SSH protocol
+•	identity — The RSA private key used by ssh for version 1 of the SSH protocol.
+•	identity.pub — The RSA public key used by ssh for version 1 of the SSH protocol.
+•	known_hosts — This file contains DSA host keys of SSH servers accessed by the user. This file is very important for ensuring that the SSH client is connecting the correct SSH server.
+
+5.	 How do you check which port the SSH is configured on?
+Answer: By looking into the /etc/ssh/sshd_config file. 
+Command line: # cat /etc/ssh/sshd_config
+
+6.	What is the difference between telnet and SSH?
+Answer: The key difference between Telnet and SSH is that SSH uses encryption, which means that all data transmitted over a network is secure from eavesdropping.
+Like Telnet, a user accessing a remote device must have an SSH client installed. On a remote device, an SSH server must be installed and running. SSH uses TCP port 22 by default. SSH relies on public key cryptography for its encryption
+
+Telnet is a network protocol that allows a user to communicate with a remote device. It is a virtual terminal protocol used mostly by network administrators to remotely access and manage devices. Administrator can access the device by “telnetting” to the IP address or hostname of a remote device. 
+To use telnet, you must have a software (Telnet client) installed. On a remote device, a Telnet server must be installed and running. Telnet uses TCP port 23.
+ 
+However, one of the greatest disadvantages of this protocol is that all data, including usernames and passwords, is sent in clear text, which is a potential security risk. This is the main reason why Telnet is rarely used today and is being replaced by a much secure protocol called SSH.
+
+7.	What is the command to keep SSH daemon on at next reboot?
+Answer: chkconfig sshd on
+
+8.	How do you disable root login through SSH?
+Answer: To prevent root logins via the SSH protocol, edit the SSH daemon's configuration file /etc/ssh/sshd_config, and change the line that reads:
+  	# PermitRootLogin yes
+ And change it to:
+#PermitRootLogin no
+This will affect and prevent root access to via SSH suite of tools such as ssh, scp and sftp and will not affect the programs that are not part of the SSH suite of tools. 
+9.	Is it possible to login thru SSH without password? if no/yes why?
+Answer: YES
+
+PermitRootLogin Specifies whether root can log in using ssh. The argument must be “yes”, “without-password”, “forced-commands-only”, or "no”. The default is “yes”.
+
+If this option is set to “without-password”, password authentication is disabled for root.
+
+If this option is set to “forced-commands-only”, root login with public key authentication will be allowed, but only if the  command option has been specified (which may be useful for taking remote backups even if root login is normally not allowed). All other authentication methods are disabled for root.
+
+If this option is set to “no”, root is not allowed to log in.
+Advantages of allowing login through SSH without password is as follows:
+a)	There are some backup systems that need root on the remote system to actually perform a backup. It is not uncommon to see things setup with key-based authentication to perform maintenance tasks on remote systems.
+b)	To use Linux and OpenSSH to automate tasks.
+c)	For efficiency and time saving purpose.
+d)	Remotely sync'ing two servers (to have one of them being used as fail-over). Because the structure must be identical, often a root password is required.
+e)	For security reasons by using cryptographic keys and never a password to login.
+
+10.	How do you set up a key based authentication thru SSH?
+Answer: Login as user.
+On the main Server
+$ mkdir .ssh
+$ chmod 700 .ssh
+$ cd –ssh
+$ ssh_keygen (This will generate both the private and public keys)
+
+Simply bypass the three prompts by hitting ENTER. 
+Copy the public key. To display the content of your id_rsa.pub key, type this into your local computer:
+
+cat ~/.ssh/id_rsa.pub
+
+On the Client Server login as user
+
+$ mkdir .ssh
+$ chmod 700 .ssh
+$ cd .ssh
+$ touch authorized_keys
+$ chmod 600 authorized_keys
+$ vi authorized_keys 
+Paste the key or or use the ssh-copy-id command and follow prompts.
+The Syntax is: ssh-copy-id username@remote_host
+
+11.	What is a tar file?
+Answer: Short for Tape Archive, and sometimes referred to as tarball, a file that has the TAR file extension is a file in the Consolidated Unix Archive format.
+Because the TAR file format is used to store multiple files in one single file, it's a popular method for both archiving purposes and for sending multiple files over the internet, like for software downloads.
+The TAR file format is common in Linux and Unix systems, but only for storing data, not compressing it.
+TAR files are often compressed after being created, but those become TGZ files, using the TGZ, TAR.GZ, or GZ extensions.
+
+12.	What is the extention of a tarball file?
+Answer: An archive is a single file that contains any number of individual files plus information to allow them to be restored to their original form by one or more extraction programs.
+Tar, whose name is an acronym for tape archive, is perhaps the most frequently used program for creating and opening archive files on Linux and other Unix-like operating systems. It acquired its name from the fact that it was originally developed for use with sequential access devices such as tape drives, specifically for backup purposes. The names of files created by tar have a .tar extension.
+In 1997, Sun proposed a method for adding extensions to the tar format. This method was later accepted for the POSIX.1-2001 standard. This format is known as extended tar-format or pax-format. The new tar format allows users to add any type of vendor-tagged vendor-specific enhancements. The following enhancement tags are defined by the POSIX standard:
+•	all three time stamps of a file in arbitrary resolution (most implementations use nanosecond granularity)
+•	path names of unlimited length and character set coding
+•	symlink target names of unlimited length and character set coding
+•	user and group names of unlimited length and character set coding
+•	files with unlimited size (the historic tar format is 8 GB)
+•	userid and groupid without size limitation (this historic tar format was is limited to a max. id of 2097151)
+•	a character set definition for path names and user/group names
+In 2001, the Star program became the first tar to support the new format. In 2004, GNU tar supported the new format, though it does not write them as its default output from the tar program yet.
+
+13.	What is gunzip?
+Answer: gunzip or gzip is a file format and a software application used for file compression and decompression. The program was created by Jean-loup Gailly and Mark Adler as a free software replacement for the compress program used in early Unix systems, and intended for use by GNU (the "g" is from "GNU"). Version 0.1 was first publicly released on 31 October 1992, and version 1.0 followed in February 1993
+
+14.	login to your server, create a tarbal file with the content of your home directory.
+The tarball should be called yourname.tar
+Answer: tar cvf charles.tar /home/student
+	: ls –lh
+
+15.	Use gunzip tool to compress your tarball file.
+Answer: gzip charles.tar
+
+16.	Securely copy your compressed file to my server in /tmp (96.245.84.63 user=class3, passwd=school1)
+Answer: 
+Step 1. 
+Login to my VM via Putty as user
+	: $ mkdir .ssh
+	: $ chmod 700 .ssh
+	: $ cd .ssh
+	: $ ssh_keygen (This will generate both the private and public key)
+	: $ cat the id_rsa.pub (Public key and copy it)
+
+
+Step 2.
+Login to a new session of Putty as user with ip 96.245.84.63 and enter user info accordingly.
+	: $ mkdir .ssh
+	: $ chmod 700 .ssh
+	: $ cd .ssh
+	: $ touch authorized_keys
+	: $ chmod 600 authorized_keys
+	: $ vi authorized_keys
+Paste the public key.
+
+Step 3.To transfer the compressed file use the command line:
+$ scp charles.tar class3@96.245.84.63:/tmp
+$ ll –ltr will display the last file created for confirmation.
+
+	
+
+
+
+
