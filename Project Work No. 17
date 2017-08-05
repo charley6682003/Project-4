@@ -1,0 +1,150 @@
+1- System hardening
+
+a- what is a Patch?
+b- what command would you use to install a single patch?
+c- How do enable the root password require for maintenance mode?
+d- why is the root passwd for maintenance is important?
+e- whatisthe danger of not having a grub passwd?
+f- What are some security measures put in place for the physical security of the servers?
+g- why is security so important for companies?
+
+
+2-In your own words describe some few raisons why a server should be constantly patched
+
+4- upgrade your homecentos the kernel to the latest stable kernel version 
+
+you can get the package from the kernel.org website.
+5- set the new kernelas default kernel.
+
+
+
+
+
+
+
+
+
+
+
+
+ANSWER TO PROJECT WORK NO. 17
+
+1.	System hardening;
+
+a)	What is a Patch?
+Answer: A patch is a piece of software designed to update a computer program or its supporting data, to fix or improve it. This includes fixing security vulnerabilities and other bugs, with such patches usually called bugfixes or bug fixes, and improving the usability or performance. It is vital to note that although meant to fix problems, poorly designed patches can sometimes introduce new problems. In some special cases updates may knowingly break the functionality, for instance, by removing components for which the update provider is no longer licensed or disabling a device.
+Patches for proprietary software are typically distributed as executable files instead of source code. This type of patch modifies the program executable—the program the user actually runs either by modifying the binary file to include the fixes or by completely replacing it. On early 8-bit microcomputers, for example the Radio Shack TRS-80, the operating system included a PATCH utility which accepted patch data from a text file and applied the fixes to the target program's executable binary file(s). Small in-memory patches could be manually applied with the system debug utility, such as CP/M's DDT or MS-DOS's DEBUG debuggers. Programmers working in interpreted BASIC often used the POKE command to temporarily alter the functionality of a system service routine.
+
+Patches can also circulate in the form of source code modifications. In this case, the patches usually consist of textual differences between two source code files, called "diffs". These types of patches commonly come out of open-source projects. In these cases, developers expect users to compile the new or changed files themselves.
+
+Because the word "patch" carries the connotation of a small fix, large fixes may use different nomenclature. Bulky patches or patches that significantly change a program may circulate as "service packs" or as "software updates". Microsoft Windows NT and its successors (including Windows 2000, Windows XP, Windows Vista and Windows 7) use the "service pack" terminology. Historically, IBM used the terms "FixPaks" and "Corrective Service Diskette" to refer to these updates.
+
+
+b)	What command would you use to install a single patch?
+Answer: wget
+              : patch < myfile.patch
+              : patch < /path/to/file
+
+
+c)	How do enable the root password require for maintenance mode?
+Answer: Log in as root, and modify the /etc/sysconfig/init file
+             : # vi /etc/sysconfig/init 
+             : shift G to take you to the end of the file and modify the Single=/sbin/sushell 
+             : Change the Single=/sbin/sushell to /sbin/sulogin
+             : save and quite file and the process is completed, this will prompt for password in the single user maintenance mode.
+             : # wq!
+             : roboot server. 
+
+To bypass root password requirement and force server to maintenance mode; 
+
+1. When the GRUB loader shows during boot press the any key to interrupt boot.
+2. Select your boot kernel.
+3. Type ‘e’ to edit the default kernel line.
+4. Type ‘e’ again on the line that starts with ‘kernel’.
+5. Add ‘rw init=/bin/bash’ after the “quiet” to the end of the ‘kernel’ line then press enter.
+6. Type ‘b’ to boot the modified kernel parameters.
+7. You will now be able to login as root, with the pound sign.
+
+d)	Why is the root passwd for maintenance very important?
+Answer: Whoever has the root password to the single user / maintenance mode, can do serious damage to the server. Because they have access to read, write and execute all files, they can modify the file systems and as well gain access to all files. 
+Therefore for security, data protection, proper auditing and …. Reasons the root password for maintenance mode is extremely sensitive and should be limited to only those approved to so. 
+
+e)	What is the danger of not having a grub password?
+Answer: It is possible to access and login into the server as root by interrupting the grub menu. When the grub password is enabled, it provides another and stronger layer of security to the server.
+ 
+f)	What are some security measures put in place for the physical security of the servers?
+Answer: Every general computer networking class teaches the OSI and/or DoD networking models, and we all learn that everything begins at the bottom, with the physical level. Likewise, when it comes to IT security, physical security is the foundation for our overall strategy. But some organizations, distracted by the more sophisticated features of software-based security products, may overlook the importance of ensuring that the network and its components have been protected at the physical level.
+Listed below are 10 of the most essential security measures any organization should implement in regards to physical security;
+1: Lock up the server room
+Even before you lock down the servers, in fact, before you even turn them on for the first time, you should ensure that there are good locks on the server room door. Of course, the best lock in the world does no good if it isn't used, so you also need policies requiring that those doors be locked any time the room is unoccupied, and the policies should set out who has the key or keycode to get in.
+The server room is the heart of your physical network, and someone with physical access to the servers, switches, routers, cables and other devices in that room can do enormous damage.
+2: Set up surveillance
+ADVERTISING
+Locking the door to the server room is a good first step, but someone could break in, or someone who has authorized access could misuse that authority. You need a way to know who goes in and out and when. A log book for signing in and out is the most elemental way to accomplish this, but it has a lot of drawbacks. A person with malicious intent is likely to just bypass it.
+A better solution than the log book is an authentication system incorporated into the locking devices, so that a smart card, token, or biometric scan is required to unlock the doors, and a record is made of the identity of each person who enters.
+A video surveillance camera, placed in a location that makes it difficult to tamper with or disable (or even to find) but gives a good view of persons entering and leaving should supplement the log book or electronic access system. Surveillance cams can monitor continuously, or they can use motion detection technology to record only when someone is moving about. They can even be set up to send e-mail or cell phone notification if motion is detected when it shouldn't be (such as after hours).
+3: Make sure the most vulnerable devices are in that locked room
+It is vital to note, it's not just the servers you have to worry about. A hacker can plug a laptop into a hub and use sniffer software to capture data traveling across the network. Make sure that as many of your network devices as possible are in that locked room, or if they need to be in a different area, in a locked closet elsewhere in the building.
+4: Use rack mount servers
+Rack mount servers not only take up less server room real estate; they are also easier to secure. Although smaller and arguably lighter than (some) tower systems, they can easily be locked into closed racks that, once loaded with several servers, can then be bolted to the floor, making the entire package almost impossible to move, much less to steal.
+5:  The workstations
+Hackers can use any unsecured computer that's connected to the network to access or delete information that's important to your business. Workstations at unoccupied desks or in empty offices (such as those used by employees who are on vacation or have left the company and not yet been replaced) or at locations easily accessible to outsiders, such as the front receptionist's desk, are particularly vulnerable.
+Disconnect and/or remove computers that aren't being used and/or lock the doors of empty offices, including those that are temporarily empty while an employee is at lunch or out sick. Equip computers that must remain in open areas, sometimes out of view of employees, with smart card or biometric readers so that it's more difficult for unauthorized persons to log on.
+6: Keep intruders from opening the case
+Both servers and workstations should be protected from thieves who can open the case and grab the hard drive. It's much easier to make off with a hard disk in your pocket than to carry a full tower off the premises. Many computers come with case locks to prevent opening the case without a key.
+A resourceful website where to get locking kits from a variety of sources for very low cost, is Innovative Security Products.
+7: Protect the portables
+Laptops and handheld computers pose special physical security risks. A thief can easily steal the entire computer, including any data stored on its disk as well as network logon passwords that may be saved. If employees use laptops at their desks, they should take them with them when they leave or secure them to a permanent fixture with a cable lock, such as the one at PC Guardian.
+Handhelds can be locked in a drawer or safe or just slipped into a pocket and carried on your person when you leave the area. Motion sensing alarms such as the one at SecurityKit.com are also available to alert you if your portable is moved.
+For portables that contain sensitive information, full disk encryption, biometric readers, and software that "phones home" if the stolen laptop connects to the Internet can supplement physical precautions.
+8: Pack up the backups
+Backing up important data is an essential element in disaster recovery, but don't forget that the information on those backup tapes, disks, or discs can be stolen and used by someone outside the company. Many IT administrators keep the backups next to the server in the server room. They should be locked in a drawer or safe at the very least. Ideally, a set of backups should be kept off site, and you must take care to ensure that they are secured in that offsite location.
+Don't overlook the fact that some workers may back up their work on floppy disks, USB keys, or external hard disks. If this practice is allowed or encouraged, be sure to have policies requiring that the backups be locked up at all times.
+9: Disable the drives
+If you don't want employees copying company information to removable media, you can disable or remove floppy drives, USB ports, and other means of connecting external drives. Simply disconnecting the cables may not deter technically savvy workers. Some organizations go so far as to fill ports with glue or other substances to permanently prevent their use, although there are software mechanisms that disallow it. Disk locks, such as the one at SecurityKit.com, can be inserted into floppy drives on those computers that still have them to lock out other diskettes.
+10: Protect your printers
+You might not think about printers posing a security risk, but many of today's printers store document contents in their own on-board memories. If a hacker steals the printer and accesses that memory, he or she may be able to make copies of recently printed documents. Printers, like servers and workstations that store important information, should be located in secure locations and bolted down so nobody can walk off with them.
+Also think about the physical security of documents that workers print out, especially extra copies or copies that don't print perfectly and may be just abandoned at the printer or thrown intact into the trash can where they can be retrieved. It's best to implement a policy of immediately shredding any unwanted printed documents, even those that don't contain confidential information. This establishes a habit and frees the end user of the responsibility for determining whether a document should be shredded.
+
+g)	Why is security so important for companies?
+Answer: Security is one of the most frequently discussed topics in the data center services world. But why is security so important?
+The importance of security is hard to overstate. But in taking a closer look at why security is so important, it becomes clear why so many companies invest so many resources into keeping their facilities and data secure. Here are a few of the more prominent reasons why security is so important:
+•	Compliance with the law: There’s no shortage of laws and regulations mandating the safekeeping of sensitive data. While there are certainly other obligations that a business should take into account, it is extremely vital and demanded for businesses want to be in compliance with the law regarding customers’ data.  
+•	Risk of natural disasters and other threats: Today, natural disasters pose one of the biggest threats around to data centers. Physical security in a data center, starting with where it is built (outside of flood zones and in low seismic activity areas) and culminating with the actual construction of the building (is the building solidly built?), lessens the risk of downtime when natural disaster strikes. This saves money and time, and keeps your data flowing when you need it.
+•	Obligation to clients and customers: When your business takes a customer’s data, you’re obligated to do your best to keep that data safe and secure. A data center that takes compliance and physical security seriously helps fulfill this promise, keeping data safe from natural and physical threats to data centers.
+•	Cost: Downtime is expensive, and so are data breaches. The average cost per minute of downtime in a data center is $7,900, and the average organizational cost of a data breach is $5.4 million. Tough security and compliance don’t guarantee complete uptime or data safety, but they do provide the first line of defense against these costly threats.
+
+2.	In your own words describe some few raisons why a server should be constantly patched
+Answer: The main reasons for constant server patching is for system maintenance. Just like a maintenance culture is very necessary in maintaining possession, asserts, infrastructures and keeping them up to date both in the public and private domain, it is extremely important to continuously patch the servers. The main reasons for patching servers will include:
+•	Addressing a specific bug or flaw.
+•	Improving an OS or application’s general stability. It is important for the system to run smoothly without any crashes and hangs. Kernel upgrades help in decreasing the chances of a system crash.
+•	Fix all security vulnerability. Security flaws keep getting fixed in the latest versions
+•	Efficiency is achieved because Kernel updates focus on efficiency and speed.
+•	New features - With the world around us changing so rapidly, new features and capabilities is the order of the day. In order to stay up-to-date, it becomes important for us to incorporate those features so that applications can take advantage of them.
+A software patch can also be seen or considered as an armor that repels attacks and protects against various exploits from hundreds of millions of new pieces of malware released each year.
+    
+3.	Upgrade your homecentos the kernel to the latest stable kernel version 
+You can get the package from the kernel.org website.
+Answer: # uname –r (To verify the current version of the kernel)
+We can either download the latest kernel version using 'wget' command or directly download it from kernel.org command line below will download it into /tmp directory using wget.
+	: # cd /tmp/
+	: # wget path to the latest version of file via kernel.org
+As the downloaded file will be in the compressed format, we need to extract it before compiling it. Download it into /usr/src directory.
+: # tar -xf -C	
+Switch to the directory where you extracted the kernel source (usr/src/linux-4.7). If you are compiling the kernel for the first time or want new features on top of the existing one, run the make menuconfig command in a terminal to configure all the required features in your Linux kernel.  A window will pops up with multiple menus inside some of them. Once you select the required configurations, select the 'Save' option and exit. If you want to exit without saving anything, press 'Esc' key twice.
+In order to compile the kernel, we need to execute the make command. It generally takes around 30 minutes to compile the kernel depending on the system's configuration.  Sometimes, it is possible that you get error messages while compiling if any of the packages are missing.
+	: # make modules_install install
+This command will compile the modules, install the binaries into /boot directory and also adds an entry for this kernel in the grub.conf file.
+Verify the new kernel is installed.
+Reboot your system after installing the new kernel and once the system is up, execute uname -r command to verify if the kernel version has been successfully updated.
+	
+4.	Set the new kernel as default kernel.
+Answer: Open /boot/grub/grub.conf with a text editor, look for 'default=0', and change 0 to the GRUB entry value for the default kernel to use
+		: vi /boot/grub/grub.conf
+            : edit default=0 to the preferred kernel of choice by entering the number instead of 0.
+
+
+
+
+
+
