@@ -41,9 +41,7 @@ Because the word "patch" carries the connotation of a small fix, large fixes may
 
 
 b)	What command would you use to install a single patch?
-Answer: wget
-              : patch < myfile.patch
-              : patch < /path/to/file
+Answer: patch < /path/to/file
 
 
 c)	How do enable the root password require for maintenance mode?
